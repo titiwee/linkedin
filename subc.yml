@@ -241,6 +241,8 @@ rules:
     - 'DOMAIN-SUFFIX,vungle.com,REJECT'
     - 'DOMAIN-KEYWORD,wlmonitor,REJECT'
     - 'DOMAIN-KEYWORD,zjtoolbar,REJECT'
+    - 'DOMAIN-SUFFIX,zillow.com,加速园'
+    - 'DOMAIN-SUFFIX,condo.com,加速园'
     - 'DOMAIN-SUFFIX,9to5mac.com,加速园'
     - 'DOMAIN-SUFFIX,abpchina.org,加速园'
     - 'DOMAIN-SUFFIX,adblockplus.org,加速园'
