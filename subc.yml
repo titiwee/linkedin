@@ -332,8 +332,10 @@ proxies:
 proxy-providers:
 
 proxy-groups:
-  - name: "节点列表"
-    type: select
+  - name: "自动选择"
+    type: url-test
+    url: "http://www.gstatic.com/generate_204"
+    interval: 86400
     proxies:
       - 台湾
       - 台湾2
@@ -369,7 +371,7 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - 节点列表
+      - 自动选择
 
 rule-providers:
   reject:
