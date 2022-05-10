@@ -328,6 +328,9 @@ proxies:
     ws-opts:
       path: /cpyhyfd3
 
+proxy-groups:
+    - { name: 自动选择, type: url-test, proxies: [台湾, 台湾2, 台湾3, 美国], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
+
 # 服务器节点订阅
 proxy-providers:
 
