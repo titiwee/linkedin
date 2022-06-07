@@ -1,554 +1,816 @@
 mixed-port: 7890
 allow-lan: true
-bind-address: '*'
+bind-address: "*"
 mode: rule
 log-level: info
-external-controller: '127.0.0.1:9090'
+external-controller: "127.0.0.1:9090"
 dns:
-    enable: true
-    ipv6: false
-    default-nameserver: [223.5.5.5, 119.29.29.29]
-    enhanced-mode: redir-host
-    fake-ip-range: 198.18.0.1/16
-    use-hosts: true
-    nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
-    fallback: ['tls://1.0.0.1:853', 'https://cloudflare-dns.com/dns-query', 'https://dns.google/dns-query']
-    fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
+  enable: true
+  ipv6: false
+  default-nameserver: [223.5.5.5, 119.29.29.29]
+  enhanced-mode: redir-host
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  nameserver: ["https://doh.pub/dns-query", "https://dns.alidns.com/dns-query"]
+  fallback:
+    [
+      "tls://1.0.0.1:853",
+      "https://cloudflare-dns.com/dns-query",
+      "https://dns.google/dns-query",
+    ]
+  fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
 proxies:
-    - { name: 香港BGP-01, type: ss, server: pass1.jiasuyuan.buzz, port: 63211, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
-    - { name: 香港BGP-02, type: ss, server: pass2.jiasuyuan.buzz, port: 63221, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
-    - { name: 香港移动家宽-01, type: ss, server: pass3.jiasuyuan.buzz, port: 33341, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
-    - { name: 香港移动家宽-02, type: ss, server: pass4.jiasuyuan.buzz, port: 33342, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
-    - { name: 美国BGP-01【解锁netflix】, type: ss, server: pass5.jiasuyuan.buzz, port: 63214, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
-    - { name: 美国BGP-02【解锁netflix】, type: ss, server: pass6.jiasuyuan.buzz, port: 63224, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
-    - { name: 新加坡BGP-01【解锁netflix】, type: ss, server: pass7.jiasuyuan.buzz, port: 63212, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
-    - { name: 新加坡BGP-02【解锁netflix】, type: ss, server: pass8.jiasuyuan.buzz, port: 63222, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
-    - { name: 日本BGP-01【解锁netflix】, type: ss, server: pass9.jiasuyuan.buzz, port: 63213, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
-    - { name: 日本BGP-02【解锁netflix】, type: ss, server: pass10.jiasuyuan.buzz, port: 63223, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
-    - { name: 台湾-01-广港隧道【解锁netflix】, type: ss, server: pass11.jiasuyuan.buzz, port: 33351, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
-    - { name: 台湾-02-广港隧道【解锁netflix】, type: ss, server: pass12.jiasuyuan.buzz, port: 33352, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
-    - { name: 韩国-首尔, type: ss, server: pass13.jiasuyuan.buzz, port: 32000, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
-    - { name: 印尼-BGP01, type: ss, server: hg01.beibei123.xyz, port: 29000, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
-    - { name: 印尼-BGP02, type: ss, server: hg02.beibei123.xyz, port: 29001, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
-    - { name: 英国-BGP01, type: ss, server: yg01.beibei123.xyz, port: 41000, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
-    - { name: 如果遇到没网或者卡顿，ios用户请右滑jiasuyuan.xyz更新服务器。, type: ss, server: yg02.beibei123.xyz, port: 41001, cipher: chacha20-ietf-poly1305, password: 68a401ed-9403-4d69-a564-aeba67204b35, udp: true }
+  - {
+      name: 续费浏览器打开：加速园.com,
+      type: ss,
+      server: pass1.jiasuyuan.shop,
+      port: 63211,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇭🇰中国香港Ax ①",
+      type: ss,
+      server: pass2.jiasuyuan.shop,
+      port: 63221,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇭🇰中国香港Ax ③",
+      type: ss,
+      server: pass4.jiasuyuan.shop,
+      port: 33341,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇭🇰中国香港Ax ④",
+      type: ss,
+      server: pass5.jiasuyuan.shop,
+      port: 33342,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「IPLC」🇭🇰中国香港Ax ①",
+      type: ss,
+      server: pass6.jiasuyuan.shop,
+      port: 1024,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇺🇸美国纽约Ax ①",
+      type: ss,
+      server: mg01.caiyuanzi.life,
+      port: 63214,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇺🇸美国洛杉矶Ax ②",
+      type: ss,
+      server: mg02.caiyuanzi.life,
+      port: 63224,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇸🇬新加坡Cx ①",
+      type: ss,
+      server: sg01.caiyuanzi.life,
+      port: 63212,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇸🇬新加坡Cx ②",
+      type: ss,
+      server: sg02.caiyuanzi.life,
+      port: 63222,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇨🇳中国台湾Ax ①",
+      type: ss,
+      server: tw01.beibei456.xyz,
+      port: 33351,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇨🇳中国台湾Ax ②",
+      type: ss,
+      server: tw02.beibei456.xyz,
+      port: 33352,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇯🇵日本东京Ax ①",
+      type: ss,
+      server: jp01.tgdaili.xyz,
+      port: 63213,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇯🇵日本东京Ax ②",
+      type: ss,
+      server: jp02.tgdaili.xyz,
+      port: 63223,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇫🇷法国巴黎Ax ①",
+      type: ss,
+      server: bl01.caiyuanzi.life,
+      port: 32001,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇹🇷土耳其Ax ①",
+      type: ss,
+      server: teq.caiyuanzi.life,
+      port: 32002,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇩🇪德国Ax ①",
+      type: ss,
+      server: dg.tgdaili.xyz,
+      port: 32003,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇰🇷韩国首尔Ax ①",
+      type: ss,
+      server: hg.tgdaili.xyz,
+      port: 32000,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇮🇩印度尼西亚Ax ①",
+      type: ss,
+      server: hg01.beibei456.xyz,
+      port: 29000,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇮🇩印度尼西亚Ax ②",
+      type: ss,
+      server: hg02.beibei456.xyz,
+      port: 29001,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: "「广港」🇬🇧英国Ax ①",
+      type: ss,
+      server: yg01.beibei456.xyz,
+      port: 41000,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
+  - {
+      name: 如果遇到没网或者卡顿，ios用户请右滑jiasuyuan.xyz更新服务器。,
+      type: ss,
+      server: yg02.beibei456.xyz,
+      port: 41001,
+      cipher: chacha20-ietf-poly1305,
+      password: 68a401ed-9403-4d69-a564-aeba67204b35,
+      udp: true,
+    }
 proxy-groups:
-    - { name: 加速园, type: select, proxies: [自动选择, 故障转移, 香港BGP-01, 香港BGP-02, 香港移动家宽-01, 香港移动家宽-02, 美国BGP-01【解锁netflix】, 美国BGP-02【解锁netflix】, 新加坡BGP-01【解锁netflix】, 新加坡BGP-02【解锁netflix】, 日本BGP-01【解锁netflix】, 日本BGP-02【解锁netflix】, 台湾-01-广港隧道【解锁netflix】, 台湾-02-广港隧道【解锁netflix】, 韩国-首尔, 印尼-BGP01, 印尼-BGP02, 英国-BGP01, 如果遇到没网或者卡顿，ios用户请右滑jiasuyuan.xyz更新服务器。] }
-    - { name: 自动选择, type: url-test, proxies: [香港BGP-01, 香港BGP-02, 香港移动家宽-01, 香港移动家宽-02, 美国BGP-01【解锁netflix】, 美国BGP-02【解锁netflix】, 新加坡BGP-01【解锁netflix】, 新加坡BGP-02【解锁netflix】, 日本BGP-01【解锁netflix】, 日本BGP-02【解锁netflix】, 台湾-01-广港隧道【解锁netflix】, 台湾-02-广港隧道【解锁netflix】, 韩国-首尔, 印尼-BGP01, 印尼-BGP02, 英国-BGP01, 如果遇到没网或者卡顿，ios用户请右滑jiasuyuan.xyz更新服务器。], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
-    - { name: 故障转移, type: fallback, proxies: [香港BGP-01, 香港BGP-02, 香港移动家宽-01, 香港移动家宽-02, 美国BGP-01【解锁netflix】, 美国BGP-02【解锁netflix】, 新加坡BGP-01【解锁netflix】, 新加坡BGP-02【解锁netflix】, 日本BGP-01【解锁netflix】, 日本BGP-02【解锁netflix】, 台湾-01-广港隧道【解锁netflix】, 台湾-02-广港隧道【解锁netflix】, 韩国-首尔, 印尼-BGP01, 印尼-BGP02, 英国-BGP01, 如果遇到没网或者卡顿，ios用户请右滑jiasuyuan.xyz更新服务器。], url: 'http://www.gstatic.com/generate_204', interval: 7200 }
+  - {
+      name: 加速园,
+      type: select,
+      proxies:
+        [
+          自动选择,
+          故障转移,
+          续费浏览器打开：加速园.com,
+          "「广港」🇭🇰中国香港Ax ①",
+          "「广港」🇭🇰中国香港Ax ③",
+          "「广港」🇭🇰中国香港Ax ④",
+          "「IPLC」🇭🇰中国香港Ax ①",
+          "「广港」🇺🇸美国纽约Ax ①",
+          "「广港」🇺🇸美国洛杉矶Ax ②",
+          "「广港」🇸🇬新加坡Cx ①",
+          "「广港」🇸🇬新加坡Cx ②",
+          "「广港」🇨🇳中国台湾Ax ①",
+          "「广港」🇨🇳中国台湾Ax ②",
+          "「广港」🇯🇵日本东京Ax ①",
+          "「广港」🇯🇵日本东京Ax ②",
+          "「广港」🇫🇷法国巴黎Ax ①",
+          "「广港」🇹🇷土耳其Ax ①",
+          "「广港」🇩🇪德国Ax ①",
+          "「广港」🇰🇷韩国首尔Ax ①",
+          "「广港」🇮🇩印度尼西亚Ax ①",
+          "「广港」🇮🇩印度尼西亚Ax ②",
+          "「广港」🇬🇧英国Ax ①",
+          如果遇到没网或者卡顿，ios用户请右滑jiasuyuan.xyz更新服务器。,
+        ],
+    }
+  - {
+      name: 自动选择,
+      type: url-test,
+      proxies:
+        [
+          续费浏览器打开：加速园.com,
+          "「广港」🇭🇰中国香港Ax ①",
+          "「广港」🇭🇰中国香港Ax ③",
+          "「广港」🇭🇰中国香港Ax ④",
+          "「IPLC」🇭🇰中国香港Ax ①",
+          "「广港」🇺🇸美国纽约Ax ①",
+          "「广港」🇺🇸美国洛杉矶Ax ②",
+          "「广港」🇸🇬新加坡Cx ①",
+          "「广港」🇸🇬新加坡Cx ②",
+          "「广港」🇨🇳中国台湾Ax ①",
+          "「广港」🇨🇳中国台湾Ax ②",
+          "「广港」🇯🇵日本东京Ax ①",
+          "「广港」🇯🇵日本东京Ax ②",
+          "「广港」🇫🇷法国巴黎Ax ①",
+          "「广港」🇹🇷土耳其Ax ①",
+          "「广港」🇩🇪德国Ax ①",
+          "「广港」🇰🇷韩国首尔Ax ①",
+          "「广港」🇮🇩印度尼西亚Ax ①",
+          "「广港」🇮🇩印度尼西亚Ax ②",
+          "「广港」🇬🇧英国Ax ①",
+          如果遇到没网或者卡顿，ios用户请右滑jiasuyuan.xyz更新服务器。,
+        ],
+      url: "http://www.gstatic.com/generate_204",
+      interval: 86400,
+    }
+  - {
+      name: 故障转移,
+      type: fallback,
+      proxies:
+        [
+          续费浏览器打开：加速园.com,
+          "「广港」🇭🇰中国香港Ax ①",
+          "「广港」🇭🇰中国香港Ax ③",
+          "「广港」🇭🇰中国香港Ax ④",
+          "「IPLC」🇭🇰中国香港Ax ①",
+          "「广港」🇺🇸美国纽约Ax ①",
+          "「广港」🇺🇸美国洛杉矶Ax ②",
+          "「广港」🇸🇬新加坡Cx ①",
+          "「广港」🇸🇬新加坡Cx ②",
+          "「广港」🇨🇳中国台湾Ax ①",
+          "「广港」🇨🇳中国台湾Ax ②",
+          "「广港」🇯🇵日本东京Ax ①",
+          "「广港」🇯🇵日本东京Ax ②",
+          "「广港」🇫🇷法国巴黎Ax ①",
+          "「广港」🇹🇷土耳其Ax ①",
+          "「广港」🇩🇪德国Ax ①",
+          "「广港」🇰🇷韩国首尔Ax ①",
+          "「广港」🇮🇩印度尼西亚Ax ①",
+          "「广港」🇮🇩印度尼西亚Ax ②",
+          "「广港」🇬🇧英国Ax ①",
+          如果遇到没网或者卡顿，ios用户请右滑jiasuyuan.xyz更新服务器。,
+        ],
+      url: "http://www.gstatic.com/generate_204",
+      interval: 7200,
+    }
 rules:
-    - 'DOMAIN,jiasuyuan.xyz,DIRECT'
-    - 'DOMAIN-SUFFIX,services.googleapis.cn,加速园'
-    - 'DOMAIN-SUFFIX,xn--ngstr-lra8j.com,加速园'
-    - 'DOMAIN,safebrowsing.urlsec.qq.com,DIRECT'
-    - 'DOMAIN,safebrowsing.googleapis.com,DIRECT'
-    - 'DOMAIN,developer.apple.com,加速园'
-    - 'DOMAIN-SUFFIX,digicert.com,加速园'
-    - 'DOMAIN,ocsp.apple.com,加速园'
-    - 'DOMAIN,ocsp.comodoca.com,加速园'
-    - 'DOMAIN,ocsp.usertrust.com,加速园'
-    - 'DOMAIN,ocsp.sectigo.com,加速园'
-    - 'DOMAIN,ocsp.verisign.net,加速园'
-    - 'DOMAIN-SUFFIX,apple-dns.net,加速园'
-    - 'DOMAIN,testflight.apple.com,加速园'
-    - 'DOMAIN,sandbox.itunes.apple.com,加速园'
-    - 'DOMAIN,itunes.apple.com,加速园'
-    - 'DOMAIN-SUFFIX,apps.apple.com,加速园'
-    - 'DOMAIN-SUFFIX,blobstore.apple.com,加速园'
-    - 'DOMAIN,cvws.icloud-content.com,加速园'
-    - 'DOMAIN-SUFFIX,licdn.com,加速园'
-    - 'DOMAIN-SUFFIX,linkedin.com,加速园'
-    - 'DOMAIN-SUFFIX,mzstatic.com,DIRECT'
-    - 'DOMAIN-SUFFIX,itunes.apple.com,DIRECT'
-    - 'DOMAIN-SUFFIX,icloud.com,DIRECT'
-    - 'DOMAIN-SUFFIX,icloud-content.com,DIRECT'
-    - 'DOMAIN-SUFFIX,me.com,DIRECT'
-    - 'DOMAIN-SUFFIX,aaplimg.com,DIRECT'
-    - 'DOMAIN-SUFFIX,cdn20.com,DIRECT'
-    - 'DOMAIN-SUFFIX,cdn-apple.com,DIRECT'
-    - 'DOMAIN-SUFFIX,akadns.net,DIRECT'
-    - 'DOMAIN-SUFFIX,akamaiedge.net,DIRECT'
-    - 'DOMAIN-SUFFIX,edgekey.net,DIRECT'
-    - 'DOMAIN-SUFFIX,mwcloudcdn.com,DIRECT'
-    - 'DOMAIN-SUFFIX,mwcname.com,DIRECT'
-    - 'DOMAIN-SUFFIX,apple.com,DIRECT'
-    - 'DOMAIN-SUFFIX,apple-cloudkit.com,DIRECT'
-    - 'DOMAIN-SUFFIX,apple-mapkit.com,DIRECT'
-    - 'DOMAIN-SUFFIX,cn,DIRECT'
-    - 'DOMAIN-KEYWORD,-cn,DIRECT'
-    - 'DOMAIN-SUFFIX,126.com,DIRECT'
-    - 'DOMAIN-SUFFIX,126.net,DIRECT'
-    - 'DOMAIN-SUFFIX,127.net,DIRECT'
-    - 'DOMAIN-SUFFIX,163.com,DIRECT'
-    - 'DOMAIN-SUFFIX,360buyimg.com,DIRECT'
-    - 'DOMAIN-SUFFIX,36kr.com,DIRECT'
-    - 'DOMAIN-SUFFIX,acfun.tv,DIRECT'
-    - 'DOMAIN-SUFFIX,air-matters.com,DIRECT'
-    - 'DOMAIN-SUFFIX,aixifan.com,DIRECT'
-    - 'DOMAIN-KEYWORD,alicdn,DIRECT'
-    - 'DOMAIN-KEYWORD,alipay,DIRECT'
-    - 'DOMAIN-KEYWORD,taobao,DIRECT'
-    - 'DOMAIN-SUFFIX,amap.com,DIRECT'
-    - 'DOMAIN-SUFFIX,autonavi.com,DIRECT'
-    - 'DOMAIN-KEYWORD,baidu,DIRECT'
-    - 'DOMAIN-SUFFIX,bdimg.com,DIRECT'
-    - 'DOMAIN-SUFFIX,bdstatic.com,DIRECT'
-    - 'DOMAIN-SUFFIX,bilibili.com,DIRECT'
-    - 'DOMAIN-SUFFIX,bilivideo.com,DIRECT'
-    - 'DOMAIN-SUFFIX,caiyunapp.com,DIRECT'
-    - 'DOMAIN-SUFFIX,clouddn.com,DIRECT'
-    - 'DOMAIN-SUFFIX,cnbeta.com,DIRECT'
-    - 'DOMAIN-SUFFIX,cnbetacdn.com,DIRECT'
-    - 'DOMAIN-SUFFIX,cootekservice.com,DIRECT'
-    - 'DOMAIN-SUFFIX,csdn.net,DIRECT'
-    - 'DOMAIN-SUFFIX,ctrip.com,DIRECT'
-    - 'DOMAIN-SUFFIX,dgtle.com,DIRECT'
-    - 'DOMAIN-SUFFIX,dianping.com,DIRECT'
-    - 'DOMAIN-SUFFIX,douban.com,DIRECT'
-    - 'DOMAIN-SUFFIX,doubanio.com,DIRECT'
-    - 'DOMAIN-SUFFIX,duokan.com,DIRECT'
-    - 'DOMAIN-SUFFIX,easou.com,DIRECT'
-    - 'DOMAIN-SUFFIX,ele.me,DIRECT'
-    - 'DOMAIN-SUFFIX,feng.com,DIRECT'
-    - 'DOMAIN-SUFFIX,fir.im,DIRECT'
-    - 'DOMAIN-SUFFIX,frdic.com,DIRECT'
-    - 'DOMAIN-SUFFIX,g-cores.com,DIRECT'
-    - 'DOMAIN-SUFFIX,godic.net,DIRECT'
-    - 'DOMAIN-SUFFIX,gtimg.com,DIRECT'
-    - 'DOMAIN,cdn.hockeyapp.net,DIRECT'
-    - 'DOMAIN-SUFFIX,hongxiu.com,DIRECT'
-    - 'DOMAIN-SUFFIX,hxcdn.net,DIRECT'
-    - 'DOMAIN-SUFFIX,iciba.com,DIRECT'
-    - 'DOMAIN-SUFFIX,ifeng.com,DIRECT'
-    - 'DOMAIN-SUFFIX,ifengimg.com,DIRECT'
-    - 'DOMAIN-SUFFIX,ipip.net,DIRECT'
-    - 'DOMAIN-SUFFIX,iqiyi.com,DIRECT'
-    - 'DOMAIN-SUFFIX,jd.com,DIRECT'
-    - 'DOMAIN-SUFFIX,jianshu.com,DIRECT'
-    - 'DOMAIN-SUFFIX,knewone.com,DIRECT'
-    - 'DOMAIN-SUFFIX,le.com,DIRECT'
-    - 'DOMAIN-SUFFIX,lecloud.com,DIRECT'
-    - 'DOMAIN-SUFFIX,lemicp.com,DIRECT'
-    - 'DOMAIN-SUFFIX,luoo.net,DIRECT'
-    - 'DOMAIN-SUFFIX,meituan.com,DIRECT'
-    - 'DOMAIN-SUFFIX,meituan.net,DIRECT'
-    - 'DOMAIN-SUFFIX,mi.com,DIRECT'
-    - 'DOMAIN-SUFFIX,miaopai.com,DIRECT'
-    - 'DOMAIN-SUFFIX,microsoft.com,DIRECT'
-    - 'DOMAIN-SUFFIX,microsoftonline.com,DIRECT'
-    - 'DOMAIN-SUFFIX,miui.com,DIRECT'
-    - 'DOMAIN-SUFFIX,miwifi.com,DIRECT'
-    - 'DOMAIN-SUFFIX,mob.com,DIRECT'
-    - 'DOMAIN-SUFFIX,netease.com,DIRECT'
-    - 'DOMAIN-SUFFIX,office.com,DIRECT'
-    - 'DOMAIN-SUFFIX,office365.com,DIRECT'
-    - 'DOMAIN-KEYWORD,officecdn,DIRECT'
-    - 'DOMAIN-SUFFIX,oschina.net,DIRECT'
-    - 'DOMAIN-SUFFIX,ppsimg.com,DIRECT'
-    - 'DOMAIN-SUFFIX,pstatp.com,DIRECT'
-    - 'DOMAIN-SUFFIX,qcloud.com,DIRECT'
-    - 'DOMAIN-SUFFIX,qdaily.com,DIRECT'
-    - 'DOMAIN-SUFFIX,qdmm.com,DIRECT'
-    - 'DOMAIN-SUFFIX,qhimg.com,DIRECT'
-    - 'DOMAIN-SUFFIX,qhres.com,DIRECT'
-    - 'DOMAIN-SUFFIX,qidian.com,DIRECT'
-    - 'DOMAIN-SUFFIX,qihucdn.com,DIRECT'
-    - 'DOMAIN-SUFFIX,qiniu.com,DIRECT'
-    - 'DOMAIN-SUFFIX,qiniucdn.com,DIRECT'
-    - 'DOMAIN-SUFFIX,qiyipic.com,DIRECT'
-    - 'DOMAIN-SUFFIX,qq.com,DIRECT'
-    - 'DOMAIN-SUFFIX,qqurl.com,DIRECT'
-    - 'DOMAIN-SUFFIX,rarbg.to,DIRECT'
-    - 'DOMAIN-SUFFIX,ruguoapp.com,DIRECT'
-    - 'DOMAIN-SUFFIX,segmentfault.com,DIRECT'
-    - 'DOMAIN-SUFFIX,sinaapp.com,DIRECT'
-    - 'DOMAIN-SUFFIX,smzdm.com,DIRECT'
-    - 'DOMAIN-SUFFIX,snapdrop.net,DIRECT'
-    - 'DOMAIN-SUFFIX,sogou.com,DIRECT'
-    - 'DOMAIN-SUFFIX,sogoucdn.com,DIRECT'
-    - 'DOMAIN-SUFFIX,sohu.com,DIRECT'
-    - 'DOMAIN-SUFFIX,soku.com,DIRECT'
-    - 'DOMAIN-SUFFIX,speedtest.net,DIRECT'
-    - 'DOMAIN-SUFFIX,sspai.com,DIRECT'
-    - 'DOMAIN-SUFFIX,suning.com,DIRECT'
-    - 'DOMAIN-SUFFIX,taobao.com,DIRECT'
-    - 'DOMAIN-SUFFIX,tencent.com,DIRECT'
-    - 'DOMAIN-SUFFIX,tenpay.com,DIRECT'
-    - 'DOMAIN-SUFFIX,tianyancha.com,DIRECT'
-    - 'DOMAIN-SUFFIX,tmall.com,DIRECT'
-    - 'DOMAIN-SUFFIX,tudou.com,DIRECT'
-    - 'DOMAIN-SUFFIX,umetrip.com,DIRECT'
-    - 'DOMAIN-SUFFIX,upaiyun.com,DIRECT'
-    - 'DOMAIN-SUFFIX,upyun.com,DIRECT'
-    - 'DOMAIN-SUFFIX,veryzhun.com,DIRECT'
-    - 'DOMAIN-SUFFIX,weather.com,DIRECT'
-    - 'DOMAIN-SUFFIX,weibo.com,DIRECT'
-    - 'DOMAIN-SUFFIX,xiami.com,DIRECT'
-    - 'DOMAIN-SUFFIX,xiami.net,DIRECT'
-    - 'DOMAIN-SUFFIX,xiaomicp.com,DIRECT'
-    - 'DOMAIN-SUFFIX,ximalaya.com,DIRECT'
-    - 'DOMAIN-SUFFIX,xmcdn.com,DIRECT'
-    - 'DOMAIN-SUFFIX,xunlei.com,DIRECT'
-    - 'DOMAIN-SUFFIX,yhd.com,DIRECT'
-    - 'DOMAIN-SUFFIX,yihaodianimg.com,DIRECT'
-    - 'DOMAIN-SUFFIX,yinxiang.com,DIRECT'
-    - 'DOMAIN-SUFFIX,ykimg.com,DIRECT'
-    - 'DOMAIN-SUFFIX,youdao.com,DIRECT'
-    - 'DOMAIN-SUFFIX,youku.com,DIRECT'
-    - 'DOMAIN-SUFFIX,zealer.com,DIRECT'
-    - 'DOMAIN-SUFFIX,zhihu.com,DIRECT'
-    - 'DOMAIN-SUFFIX,zhimg.com,DIRECT'
-    - 'DOMAIN-SUFFIX,zimuzu.tv,DIRECT'
-    - 'DOMAIN-SUFFIX,zoho.com,DIRECT'
-    - 'DOMAIN-KEYWORD,amazon,加速园'
-    - 'DOMAIN-KEYWORD,google,加速园'
-    - 'DOMAIN-KEYWORD,gmail,加速园'
-    - 'DOMAIN-KEYWORD,youtube,加速园'
-    - 'DOMAIN-KEYWORD,facebook,加速园'
-    - 'DOMAIN-SUFFIX,fb.me,加速园'
-    - 'DOMAIN-SUFFIX,fbcdn.net,加速园'
-    - 'DOMAIN-KEYWORD,twitter,加速园'
-    - 'DOMAIN-KEYWORD,instagram,加速园'
-    - 'DOMAIN-KEYWORD,dropbox,加速园'
-    - 'DOMAIN-SUFFIX,twimg.com,加速园'
-    - 'DOMAIN-KEYWORD,blogspot,加速园'
-    - 'DOMAIN-SUFFIX,youtu.be,加速园'
-    - 'DOMAIN-KEYWORD,whatsapp,加速园'
-    - 'DOMAIN-KEYWORD,admarvel,REJECT'
-    - 'DOMAIN-KEYWORD,admaster,REJECT'
-    - 'DOMAIN-KEYWORD,adsage,REJECT'
-    - 'DOMAIN-KEYWORD,adsmogo,REJECT'
-    - 'DOMAIN-KEYWORD,adsrvmedia,REJECT'
-    - 'DOMAIN-KEYWORD,adwords,REJECT'
-    - 'DOMAIN-KEYWORD,adservice,REJECT'
-    - 'DOMAIN-SUFFIX,appsflyer.com,REJECT'
-    - 'DOMAIN-KEYWORD,domob,REJECT'
-    - 'DOMAIN-SUFFIX,doubleclick.net,REJECT'
-    - 'DOMAIN-KEYWORD,duomeng,REJECT'
-    - 'DOMAIN-KEYWORD,dwtrack,REJECT'
-    - 'DOMAIN-KEYWORD,guanggao,REJECT'
-    - 'DOMAIN-KEYWORD,lianmeng,REJECT'
-    - 'DOMAIN-SUFFIX,mmstat.com,REJECT'
-    - 'DOMAIN-KEYWORD,mopub,REJECT'
-    - 'DOMAIN-KEYWORD,omgmta,REJECT'
-    - 'DOMAIN-KEYWORD,openx,REJECT'
-    - 'DOMAIN-KEYWORD,partnerad,REJECT'
-    - 'DOMAIN-KEYWORD,pingfore,REJECT'
-    - 'DOMAIN-KEYWORD,supersonicads,REJECT'
-    - 'DOMAIN-KEYWORD,uedas,REJECT'
-    - 'DOMAIN-KEYWORD,umeng,REJECT'
-    - 'DOMAIN-KEYWORD,usage,REJECT'
-    - 'DOMAIN-SUFFIX,vungle.com,REJECT'
-    - 'DOMAIN-KEYWORD,wlmonitor,REJECT'
-    - 'DOMAIN-KEYWORD,zjtoolbar,REJECT'
-    - 'DOMAIN-SUFFIX,zillow.com,加速园'
-    - 'DOMAIN-SUFFIX,condo.com,加速园'
-    - 'DOMAIN-SUFFIX,9to5mac.com,加速园'
-    - 'DOMAIN-SUFFIX,abpchina.org,加速园'
-    - 'DOMAIN-SUFFIX,adblockplus.org,加速园'
-    - 'DOMAIN-SUFFIX,adobe.com,加速园'
-    - 'DOMAIN-SUFFIX,akamaized.net,加速园'
-    - 'DOMAIN-SUFFIX,alfredapp.com,加速园'
-    - 'DOMAIN-SUFFIX,amplitude.com,加速园'
-    - 'DOMAIN-SUFFIX,ampproject.org,加速园'
-    - 'DOMAIN-SUFFIX,android.com,加速园'
-    - 'DOMAIN-SUFFIX,angularjs.org,加速园'
-    - 'DOMAIN-SUFFIX,aolcdn.com,加速园'
-    - 'DOMAIN-SUFFIX,apkpure.com,加速园'
-    - 'DOMAIN-SUFFIX,appledaily.com,加速园'
-    - 'DOMAIN-SUFFIX,appshopper.com,加速园'
-    - 'DOMAIN-SUFFIX,appspot.com,加速园'
-    - 'DOMAIN-SUFFIX,arcgis.com,加速园'
-    - 'DOMAIN-SUFFIX,archive.org,加速园'
-    - 'DOMAIN-SUFFIX,armorgames.com,加速园'
-    - 'DOMAIN-SUFFIX,aspnetcdn.com,加速园'
-    - 'DOMAIN-SUFFIX,att.com,加速园'
-    - 'DOMAIN-SUFFIX,awsstatic.com,加速园'
-    - 'DOMAIN-SUFFIX,azureedge.net,加速园'
-    - 'DOMAIN-SUFFIX,azurewebsites.net,加速园'
-    - 'DOMAIN-SUFFIX,bing.com,加速园'
-    - 'DOMAIN-SUFFIX,bintray.com,加速园'
-    - 'DOMAIN-SUFFIX,bit.com,加速园'
-    - 'DOMAIN-SUFFIX,bit.ly,加速园'
-    - 'DOMAIN-SUFFIX,bitbucket.org,加速园'
-    - 'DOMAIN-SUFFIX,bjango.com,加速园'
-    - 'DOMAIN-SUFFIX,bkrtx.com,加速园'
-    - 'DOMAIN-SUFFIX,blog.com,加速园'
-    - 'DOMAIN-SUFFIX,blogcdn.com,加速园'
-    - 'DOMAIN-SUFFIX,blogger.com,加速园'
-    - 'DOMAIN-SUFFIX,blogsmithmedia.com,加速园'
-    - 'DOMAIN-SUFFIX,blogspot.com,加速园'
-    - 'DOMAIN-SUFFIX,blogspot.hk,加速园'
-    - 'DOMAIN-SUFFIX,bloomberg.com,加速园'
-    - 'DOMAIN-SUFFIX,box.com,加速园'
-    - 'DOMAIN-SUFFIX,box.net,加速园'
-    - 'DOMAIN-SUFFIX,cachefly.net,加速园'
-    - 'DOMAIN-SUFFIX,chromium.org,加速园'
-    - 'DOMAIN-SUFFIX,cl.ly,加速园'
-    - 'DOMAIN-SUFFIX,cloudflare.com,加速园'
-    - 'DOMAIN-SUFFIX,cloudfront.net,加速园'
-    - 'DOMAIN-SUFFIX,cloudmagic.com,加速园'
-    - 'DOMAIN-SUFFIX,cmail19.com,加速园'
-    - 'DOMAIN-SUFFIX,cnet.com,加速园'
-    - 'DOMAIN-SUFFIX,cocoapods.org,加速园'
-    - 'DOMAIN-SUFFIX,comodoca.com,加速园'
-    - 'DOMAIN-SUFFIX,crashlytics.com,加速园'
-    - 'DOMAIN-SUFFIX,culturedcode.com,加速园'
-    - 'DOMAIN-SUFFIX,d.pr,加速园'
-    - 'DOMAIN-SUFFIX,danilo.to,加速园'
-    - 'DOMAIN-SUFFIX,dayone.me,加速园'
-    - 'DOMAIN-SUFFIX,db.tt,加速园'
-    - 'DOMAIN-SUFFIX,deskconnect.com,加速园'
-    - 'DOMAIN-SUFFIX,disq.us,加速园'
-    - 'DOMAIN-SUFFIX,disqus.com,加速园'
-    - 'DOMAIN-SUFFIX,disquscdn.com,加速园'
-    - 'DOMAIN-SUFFIX,dnsimple.com,加速园'
-    - 'DOMAIN-SUFFIX,docker.com,加速园'
-    - 'DOMAIN-SUFFIX,dribbble.com,加速园'
-    - 'DOMAIN-SUFFIX,droplr.com,加速园'
-    - 'DOMAIN-SUFFIX,duckduckgo.com,加速园'
-    - 'DOMAIN-SUFFIX,dueapp.com,加速园'
-    - 'DOMAIN-SUFFIX,dytt8.net,加速园'
-    - 'DOMAIN-SUFFIX,edgecastcdn.net,加速园'
-    - 'DOMAIN-SUFFIX,edgekey.net,加速园'
-    - 'DOMAIN-SUFFIX,edgesuite.net,加速园'
-    - 'DOMAIN-SUFFIX,engadget.com,加速园'
-    - 'DOMAIN-SUFFIX,entrust.net,加速园'
-    - 'DOMAIN-SUFFIX,eurekavpt.com,加速园'
-    - 'DOMAIN-SUFFIX,evernote.com,加速园'
-    - 'DOMAIN-SUFFIX,fabric.io,加速园'
-    - 'DOMAIN-SUFFIX,fast.com,加速园'
-    - 'DOMAIN-SUFFIX,fastly.net,加速园'
-    - 'DOMAIN-SUFFIX,fc2.com,加速园'
-    - 'DOMAIN-SUFFIX,feedburner.com,加速园'
-    - 'DOMAIN-SUFFIX,feedly.com,加速园'
-    - 'DOMAIN-SUFFIX,feedsportal.com,加速园'
-    - 'DOMAIN-SUFFIX,fiftythree.com,加速园'
-    - 'DOMAIN-SUFFIX,firebaseio.com,加速园'
-    - 'DOMAIN-SUFFIX,flexibits.com,加速园'
-    - 'DOMAIN-SUFFIX,flickr.com,加速园'
-    - 'DOMAIN-SUFFIX,flipboard.com,加速园'
-    - 'DOMAIN-SUFFIX,g.co,加速园'
-    - 'DOMAIN-SUFFIX,gabia.net,加速园'
-    - 'DOMAIN-SUFFIX,geni.us,加速园'
-    - 'DOMAIN-SUFFIX,gfx.ms,加速园'
-    - 'DOMAIN-SUFFIX,ggpht.com,加速园'
-    - 'DOMAIN-SUFFIX,ghostnoteapp.com,加速园'
-    - 'DOMAIN-SUFFIX,git.io,加速园'
-    - 'DOMAIN-KEYWORD,github,加速园'
-    - 'DOMAIN-SUFFIX,globalsign.com,加速园'
-    - 'DOMAIN-SUFFIX,gmodules.com,加速园'
-    - 'DOMAIN-SUFFIX,godaddy.com,加速园'
-    - 'DOMAIN-SUFFIX,golang.org,加速园'
-    - 'DOMAIN-SUFFIX,gongm.in,加速园'
-    - 'DOMAIN-SUFFIX,goo.gl,加速园'
-    - 'DOMAIN-SUFFIX,goodreaders.com,加速园'
-    - 'DOMAIN-SUFFIX,goodreads.com,加速园'
-    - 'DOMAIN-SUFFIX,gravatar.com,加速园'
-    - 'DOMAIN-SUFFIX,gstatic.com,加速园'
-    - 'DOMAIN-SUFFIX,gvt0.com,加速园'
-    - 'DOMAIN-SUFFIX,hockeyapp.net,加速园'
-    - 'DOMAIN-SUFFIX,hotmail.com,加速园'
-    - 'DOMAIN-SUFFIX,icons8.com,加速园'
-    - 'DOMAIN-SUFFIX,ifixit.com,加速园'
-    - 'DOMAIN-SUFFIX,ift.tt,加速园'
-    - 'DOMAIN-SUFFIX,ifttt.com,加速园'
-    - 'DOMAIN-SUFFIX,iherb.com,加速园'
-    - 'DOMAIN-SUFFIX,imageshack.us,加速园'
-    - 'DOMAIN-SUFFIX,img.ly,加速园'
-    - 'DOMAIN-SUFFIX,imgur.com,加速园'
-    - 'DOMAIN-SUFFIX,imore.com,加速园'
-    - 'DOMAIN-SUFFIX,instapaper.com,加速园'
-    - 'DOMAIN-SUFFIX,ipn.li,加速园'
-    - 'DOMAIN-SUFFIX,is.gd,加速园'
-    - 'DOMAIN-SUFFIX,issuu.com,加速园'
-    - 'DOMAIN-SUFFIX,itgonglun.com,加速园'
-    - 'DOMAIN-SUFFIX,itun.es,加速园'
-    - 'DOMAIN-SUFFIX,ixquick.com,加速园'
-    - 'DOMAIN-SUFFIX,j.mp,加速园'
-    - 'DOMAIN-SUFFIX,js.revsci.net,加速园'
-    - 'DOMAIN-SUFFIX,jshint.com,加速园'
-    - 'DOMAIN-SUFFIX,jtvnw.net,加速园'
-    - 'DOMAIN-SUFFIX,justgetflux.com,加速园'
-    - 'DOMAIN-SUFFIX,kat.cr,加速园'
-    - 'DOMAIN-SUFFIX,klip.me,加速园'
-    - 'DOMAIN-SUFFIX,libsyn.com,加速园'
-    - 'DOMAIN-SUFFIX,linode.com,加速园'
-    - 'DOMAIN-SUFFIX,lithium.com,加速园'
-    - 'DOMAIN-SUFFIX,littlehj.com,加速园'
-    - 'DOMAIN-SUFFIX,live.com,加速园'
-    - 'DOMAIN-SUFFIX,live.net,加速园'
-    - 'DOMAIN-SUFFIX,livefilestore.com,加速园'
-    - 'DOMAIN-SUFFIX,llnwd.net,加速园'
-    - 'DOMAIN-SUFFIX,macid.co,加速园'
-    - 'DOMAIN-SUFFIX,macromedia.com,加速园'
-    - 'DOMAIN-SUFFIX,macrumors.com,加速园'
-    - 'DOMAIN-SUFFIX,mashable.com,加速园'
-    - 'DOMAIN-SUFFIX,mathjax.org,加速园'
-    - 'DOMAIN-SUFFIX,medium.com,加速园'
-    - 'DOMAIN-SUFFIX,mega.co.nz,加速园'
-    - 'DOMAIN-SUFFIX,mega.nz,加速园'
-    - 'DOMAIN-SUFFIX,megaupload.com,加速园'
-    - 'DOMAIN-SUFFIX,microsofttranslator.com,加速园'
-    - 'DOMAIN-SUFFIX,mindnode.com,加速园'
-    - 'DOMAIN-SUFFIX,mobile01.com,加速园'
-    - 'DOMAIN-SUFFIX,modmyi.com,加速园'
-    - 'DOMAIN-SUFFIX,msedge.net,加速园'
-    - 'DOMAIN-SUFFIX,myfontastic.com,加速园'
-    - 'DOMAIN-SUFFIX,name.com,加速园'
-    - 'DOMAIN-SUFFIX,nextmedia.com,加速园'
-    - 'DOMAIN-SUFFIX,nsstatic.net,加速园'
-    - 'DOMAIN-SUFFIX,nssurge.com,加速园'
-    - 'DOMAIN-SUFFIX,nyt.com,加速园'
-    - 'DOMAIN-SUFFIX,nytimes.com,加速园'
-    - 'DOMAIN-SUFFIX,omnigroup.com,加速园'
-    - 'DOMAIN-SUFFIX,onedrive.com,加速园'
-    - 'DOMAIN-SUFFIX,onenote.com,加速园'
-    - 'DOMAIN-SUFFIX,ooyala.com,加速园'
-    - 'DOMAIN-SUFFIX,openvpn.net,加速园'
-    - 'DOMAIN-SUFFIX,openwrt.org,加速园'
-    - 'DOMAIN-SUFFIX,orkut.com,加速园'
-    - 'DOMAIN-SUFFIX,osxdaily.com,加速园'
-    - 'DOMAIN-SUFFIX,outlook.com,加速园'
-    - 'DOMAIN-SUFFIX,ow.ly,加速园'
-    - 'DOMAIN-SUFFIX,paddleapi.com,加速园'
-    - 'DOMAIN-SUFFIX,parallels.com,加速园'
-    - 'DOMAIN-SUFFIX,parse.com,加速园'
-    - 'DOMAIN-SUFFIX,pdfexpert.com,加速园'
-    - 'DOMAIN-SUFFIX,periscope.tv,加速园'
-    - 'DOMAIN-SUFFIX,pinboard.in,加速园'
-    - 'DOMAIN-SUFFIX,pinterest.com,加速园'
-    - 'DOMAIN-SUFFIX,pixelmator.com,加速园'
-    - 'DOMAIN-SUFFIX,pixiv.net,加速园'
-    - 'DOMAIN-SUFFIX,playpcesor.com,加速园'
-    - 'DOMAIN-SUFFIX,playstation.com,加速园'
-    - 'DOMAIN-SUFFIX,playstation.com.hk,加速园'
-    - 'DOMAIN-SUFFIX,playstation.net,加速园'
-    - 'DOMAIN-SUFFIX,playstationnetwork.com,加速园'
-    - 'DOMAIN-SUFFIX,pushwoosh.com,加速园'
-    - 'DOMAIN-SUFFIX,rime.im,加速园'
-    - 'DOMAIN-SUFFIX,servebom.com,加速园'
-    - 'DOMAIN-SUFFIX,sfx.ms,加速园'
-    - 'DOMAIN-SUFFIX,shadowsocks.org,加速园'
-    - 'DOMAIN-SUFFIX,sharethis.com,加速园'
-    - 'DOMAIN-SUFFIX,shazam.com,加速园'
-    - 'DOMAIN-SUFFIX,skype.com,加速园'
-    - 'DOMAIN-SUFFIX,smartdns加速园.com,加速园'
-    - 'DOMAIN-SUFFIX,smartmailcloud.com,加速园'
-    - 'DOMAIN-SUFFIX,sndcdn.com,加速园'
-    - 'DOMAIN-SUFFIX,sony.com,加速园'
-    - 'DOMAIN-SUFFIX,soundcloud.com,加速园'
-    - 'DOMAIN-SUFFIX,sourceforge.net,加速园'
-    - 'DOMAIN-SUFFIX,spotify.com,加速园'
-    - 'DOMAIN-SUFFIX,squarespace.com,加速园'
-    - 'DOMAIN-SUFFIX,sstatic.net,加速园'
-    - 'DOMAIN-SUFFIX,st.luluku.pw,加速园'
-    - 'DOMAIN-SUFFIX,stackoverflow.com,加速园'
-    - 'DOMAIN-SUFFIX,startpage.com,加速园'
-    - 'DOMAIN-SUFFIX,staticflickr.com,加速园'
-    - 'DOMAIN-SUFFIX,steamcommunity.com,加速园'
-    - 'DOMAIN-SUFFIX,symauth.com,加速园'
-    - 'DOMAIN-SUFFIX,symcb.com,加速园'
-    - 'DOMAIN-SUFFIX,symcd.com,加速园'
-    - 'DOMAIN-SUFFIX,tapbots.com,加速园'
-    - 'DOMAIN-SUFFIX,tapbots.net,加速园'
-    - 'DOMAIN-SUFFIX,tdesktop.com,加速园'
-    - 'DOMAIN-SUFFIX,techcrunch.com,加速园'
-    - 'DOMAIN-SUFFIX,techsmith.com,加速园'
-    - 'DOMAIN-SUFFIX,thepiratebay.org,加速园'
-    - 'DOMAIN-SUFFIX,theverge.com,加速园'
-    - 'DOMAIN-SUFFIX,time.com,加速园'
-    - 'DOMAIN-SUFFIX,timeinc.net,加速园'
-    - 'DOMAIN-SUFFIX,tiny.cc,加速园'
-    - 'DOMAIN-SUFFIX,tinypic.com,加速园'
-    - 'DOMAIN-SUFFIX,tmblr.co,加速园'
-    - 'DOMAIN-SUFFIX,todoist.com,加速园'
-    - 'DOMAIN-SUFFIX,trello.com,加速园'
-    - 'DOMAIN-SUFFIX,trustasiassl.com,加速园'
-    - 'DOMAIN-SUFFIX,tumblr.co,加速园'
-    - 'DOMAIN-SUFFIX,tumblr.com,加速园'
-    - 'DOMAIN-SUFFIX,tweetdeck.com,加速园'
-    - 'DOMAIN-SUFFIX,tweetmarker.net,加速园'
-    - 'DOMAIN-SUFFIX,twitch.tv,加速园'
-    - 'DOMAIN-SUFFIX,txmblr.com,加速园'
-    - 'DOMAIN-SUFFIX,typekit.net,加速园'
-    - 'DOMAIN-SUFFIX,ubertags.com,加速园'
-    - 'DOMAIN-SUFFIX,ublock.org,加速园'
-    - 'DOMAIN-SUFFIX,ubnt.com,加速园'
-    - 'DOMAIN-SUFFIX,ulyssesapp.com,加速园'
-    - 'DOMAIN-SUFFIX,urchin.com,加速园'
-    - 'DOMAIN-SUFFIX,usertrust.com,加速园'
-    - 'DOMAIN-SUFFIX,v.gd,加速园'
-    - 'DOMAIN-SUFFIX,v2ex.com,加速园'
-    - 'DOMAIN-SUFFIX,vimeo.com,加速园'
-    - 'DOMAIN-SUFFIX,vimeocdn.com,加速园'
-    - 'DOMAIN-SUFFIX,vine.co,加速园'
-    - 'DOMAIN-SUFFIX,vivaldi.com,加速园'
-    - 'DOMAIN-SUFFIX,vox-cdn.com,加速园'
-    - 'DOMAIN-SUFFIX,vsco.co,加速园'
-    - 'DOMAIN-SUFFIX,vultr.com,加速园'
-    - 'DOMAIN-SUFFIX,w.org,加速园'
-    - 'DOMAIN-SUFFIX,w3schools.com,加速园'
-    - 'DOMAIN-SUFFIX,webtype.com,加速园'
-    - 'DOMAIN-SUFFIX,wikiwand.com,加速园'
-    - 'DOMAIN-SUFFIX,wikileaks.org,加速园'
-    - 'DOMAIN-SUFFIX,wikimedia.org,加速园'
-    - 'DOMAIN-SUFFIX,wikipedia.com,加速园'
-    - 'DOMAIN-SUFFIX,wikipedia.org,加速园'
-    - 'DOMAIN-SUFFIX,windows.com,加速园'
-    - 'DOMAIN-SUFFIX,windows.net,加速园'
-    - 'DOMAIN-SUFFIX,wire.com,加速园'
-    - 'DOMAIN-SUFFIX,wordpress.com,加速园'
-    - 'DOMAIN-SUFFIX,workflowy.com,加速园'
-    - 'DOMAIN-SUFFIX,wp.com,加速园'
-    - 'DOMAIN-SUFFIX,wsj.com,加速园'
-    - 'DOMAIN-SUFFIX,wsj.net,加速园'
-    - 'DOMAIN-SUFFIX,xda-developers.com,加速园'
-    - 'DOMAIN-SUFFIX,xeeno.com,加速园'
-    - 'DOMAIN-SUFFIX,xiti.com,加速园'
-    - 'DOMAIN-SUFFIX,yahoo.com,加速园'
-    - 'DOMAIN-SUFFIX,yimg.com,加速园'
-    - 'DOMAIN-SUFFIX,ying.com,加速园'
-    - 'DOMAIN-SUFFIX,yoyo.org,加速园'
-    - 'DOMAIN-SUFFIX,ytimg.com,加速园'
-    - 'DOMAIN-SUFFIX,telegra.ph,加速园'
-    - 'DOMAIN-SUFFIX,telegram.org,加速园'
-    - 'IP-CIDR,91.108.4.0/22,加速园,no-resolve'
-    - 'IP-CIDR,91.108.8.0/21,加速园,no-resolve'
-    - 'IP-CIDR,91.108.16.0/22,加速园,no-resolve'
-    - 'IP-CIDR,91.108.56.0/22,加速园,no-resolve'
-    - 'IP-CIDR,149.154.160.0/20,加速园,no-resolve'
-    - 'IP-CIDR6,2001:67c:4e8::/48,加速园,no-resolve'
-    - 'IP-CIDR6,2001:b28:f23d::/48,加速园,no-resolve'
-    - 'IP-CIDR6,2001:b28:f23f::/48,加速园,no-resolve'
-    - 'IP-CIDR,120.232.181.162/32,加速园,no-resolve'
-    - 'IP-CIDR,120.241.147.226/32,加速园,no-resolve'
-    - 'IP-CIDR,120.253.253.226/32,加速园,no-resolve'
-    - 'IP-CIDR,120.253.255.162/32,加速园,no-resolve'
-    - 'IP-CIDR,120.253.255.34/32,加速园,no-resolve'
-    - 'IP-CIDR,120.253.255.98/32,加速园,no-resolve'
-    - 'IP-CIDR,180.163.150.162/32,加速园,no-resolve'
-    - 'IP-CIDR,180.163.150.34/32,加速园,no-resolve'
-    - 'IP-CIDR,180.163.151.162/32,加速园,no-resolve'
-    - 'IP-CIDR,180.163.151.34/32,加速园,no-resolve'
-    - 'IP-CIDR,203.208.39.0/24,加速园,no-resolve'
-    - 'IP-CIDR,203.208.40.0/24,加速园,no-resolve'
-    - 'IP-CIDR,203.208.41.0/24,加速园,no-resolve'
-    - 'IP-CIDR,203.208.43.0/24,加速园,no-resolve'
-    - 'IP-CIDR,203.208.50.0/24,加速园,no-resolve'
-    - 'IP-CIDR,220.181.174.162/32,加速园,no-resolve'
-    - 'IP-CIDR,220.181.174.226/32,加速园,no-resolve'
-    - 'IP-CIDR,220.181.174.34/32,加速园,no-resolve'
-    - 'DOMAIN,injections.adguard.org,DIRECT'
-    - 'DOMAIN,local.adguard.org,DIRECT'
-    - 'DOMAIN-SUFFIX,local,DIRECT'
-    - 'IP-CIDR,127.0.0.0/8,DIRECT'
-    - 'IP-CIDR,172.16.0.0/12,DIRECT'
-    - 'IP-CIDR,192.168.0.0/16,DIRECT'
-    - 'IP-CIDR,10.0.0.0/8,DIRECT'
-    - 'IP-CIDR,17.0.0.0/8,DIRECT'
-    - 'IP-CIDR,100.64.0.0/10,DIRECT'
-    - 'IP-CIDR,224.0.0.0/4,DIRECT'
-    - 'IP-CIDR6,fe80::/10,DIRECT'
-    - 'GEOIP,CN,DIRECT'
-    - 'MATCH,加速园'
+  - "DOMAIN,jiasuyuan.xyz,DIRECT"
+  - "DOMAIN-SUFFIX,services.googleapis.cn,加速园"
+  - "DOMAIN-SUFFIX,xn--ngstr-lra8j.com,加速园"
+  - "DOMAIN,safebrowsing.urlsec.qq.com,DIRECT"
+  - "DOMAIN,safebrowsing.googleapis.com,DIRECT"
+  - "DOMAIN,developer.apple.com,加速园"
+  - "DOMAIN-SUFFIX,digicert.com,加速园"
+  - "DOMAIN,ocsp.apple.com,加速园"
+  - "DOMAIN,ocsp.comodoca.com,加速园"
+  - "DOMAIN,ocsp.usertrust.com,加速园"
+  - "DOMAIN,ocsp.sectigo.com,加速园"
+  - "DOMAIN,ocsp.verisign.net,加速园"
+  - "DOMAIN-SUFFIX,apple-dns.net,加速园"
+  - "DOMAIN,testflight.apple.com,加速园"
+  - "DOMAIN,sandbox.itunes.apple.com,加速园"
+  - "DOMAIN,itunes.apple.com,加速园"
+  - "DOMAIN-SUFFIX,apps.apple.com,加速园"
+  - "DOMAIN-SUFFIX,blobstore.apple.com,加速园"
+  - "DOMAIN,cvws.icloud-content.com,加速园"
+  - "DOMAIN-SUFFIX,mzstatic.com,DIRECT"
+  - "DOMAIN-SUFFIX,itunes.apple.com,DIRECT"
+  - "DOMAIN-SUFFIX,icloud.com,DIRECT"
+  - "DOMAIN-SUFFIX,icloud-content.com,DIRECT"
+  - "DOMAIN-SUFFIX,me.com,DIRECT"
+  - "DOMAIN-SUFFIX,aaplimg.com,DIRECT"
+  - "DOMAIN-SUFFIX,cdn20.com,DIRECT"
+  - "DOMAIN-SUFFIX,cdn-apple.com,DIRECT"
+  - "DOMAIN-SUFFIX,akadns.net,DIRECT"
+  - "DOMAIN-SUFFIX,akamaiedge.net,DIRECT"
+  - "DOMAIN-SUFFIX,edgekey.net,DIRECT"
+  - "DOMAIN-SUFFIX,mwcloudcdn.com,DIRECT"
+  - "DOMAIN-SUFFIX,mwcname.com,DIRECT"
+  - "DOMAIN-SUFFIX,apple.com,DIRECT"
+  - "DOMAIN-SUFFIX,apple-cloudkit.com,DIRECT"
+  - "DOMAIN-SUFFIX,apple-mapkit.com,DIRECT"
+  - "DOMAIN-SUFFIX,cn,DIRECT"
+  - "DOMAIN-KEYWORD,-cn,DIRECT"
+  - "DOMAIN-SUFFIX,126.com,DIRECT"
+  - "DOMAIN-SUFFIX,126.net,DIRECT"
+  - "DOMAIN-SUFFIX,127.net,DIRECT"
+  - "DOMAIN-SUFFIX,163.com,DIRECT"
+  - "DOMAIN-SUFFIX,360buyimg.com,DIRECT"
+  - "DOMAIN-SUFFIX,36kr.com,DIRECT"
+  - "DOMAIN-SUFFIX,acfun.tv,DIRECT"
+  - "DOMAIN-SUFFIX,air-matters.com,DIRECT"
+  - "DOMAIN-SUFFIX,aixifan.com,DIRECT"
+  - "DOMAIN-KEYWORD,alicdn,DIRECT"
+  - "DOMAIN-KEYWORD,alipay,DIRECT"
+  - "DOMAIN-KEYWORD,taobao,DIRECT"
+  - "DOMAIN-SUFFIX,amap.com,DIRECT"
+  - "DOMAIN-SUFFIX,autonavi.com,DIRECT"
+  - "DOMAIN-KEYWORD,baidu,DIRECT"
+  - "DOMAIN-SUFFIX,bdimg.com,DIRECT"
+  - "DOMAIN-SUFFIX,bdstatic.com,DIRECT"
+  - "DOMAIN-SUFFIX,bilibili.com,DIRECT"
+  - "DOMAIN-SUFFIX,bilivideo.com,DIRECT"
+  - "DOMAIN-SUFFIX,caiyunapp.com,DIRECT"
+  - "DOMAIN-SUFFIX,clouddn.com,DIRECT"
+  - "DOMAIN-SUFFIX,cnbeta.com,DIRECT"
+  - "DOMAIN-SUFFIX,cnbetacdn.com,DIRECT"
+  - "DOMAIN-SUFFIX,cootekservice.com,DIRECT"
+  - "DOMAIN-SUFFIX,csdn.net,DIRECT"
+  - "DOMAIN-SUFFIX,ctrip.com,DIRECT"
+  - "DOMAIN-SUFFIX,dgtle.com,DIRECT"
+  - "DOMAIN-SUFFIX,dianping.com,DIRECT"
+  - "DOMAIN-SUFFIX,douban.com,DIRECT"
+  - "DOMAIN-SUFFIX,doubanio.com,DIRECT"
+  - "DOMAIN-SUFFIX,duokan.com,DIRECT"
+  - "DOMAIN-SUFFIX,easou.com,DIRECT"
+  - "DOMAIN-SUFFIX,ele.me,DIRECT"
+  - "DOMAIN-SUFFIX,feng.com,DIRECT"
+  - "DOMAIN-SUFFIX,fir.im,DIRECT"
+  - "DOMAIN-SUFFIX,frdic.com,DIRECT"
+  - "DOMAIN-SUFFIX,g-cores.com,DIRECT"
+  - "DOMAIN-SUFFIX,godic.net,DIRECT"
+  - "DOMAIN-SUFFIX,gtimg.com,DIRECT"
+  - "DOMAIN,cdn.hockeyapp.net,DIRECT"
+  - "DOMAIN-SUFFIX,hongxiu.com,DIRECT"
+  - "DOMAIN-SUFFIX,hxcdn.net,DIRECT"
+  - "DOMAIN-SUFFIX,iciba.com,DIRECT"
+  - "DOMAIN-SUFFIX,ifeng.com,DIRECT"
+  - "DOMAIN-SUFFIX,ifengimg.com,DIRECT"
+  - "DOMAIN-SUFFIX,ipip.net,DIRECT"
+  - "DOMAIN-SUFFIX,iqiyi.com,DIRECT"
+  - "DOMAIN-SUFFIX,jd.com,DIRECT"
+  - "DOMAIN-SUFFIX,jianshu.com,DIRECT"
+  - "DOMAIN-SUFFIX,knewone.com,DIRECT"
+  - "DOMAIN-SUFFIX,le.com,DIRECT"
+  - "DOMAIN-SUFFIX,lecloud.com,DIRECT"
+  - "DOMAIN-SUFFIX,lemicp.com,DIRECT"
+  - "DOMAIN-SUFFIX,licdn.com,加速园"
+  - "DOMAIN-SUFFIX,luoo.net,DIRECT"
+  - "DOMAIN-SUFFIX,meituan.com,DIRECT"
+  - "DOMAIN-SUFFIX,meituan.net,DIRECT"
+  - "DOMAIN-SUFFIX,mi.com,DIRECT"
+  - "DOMAIN-SUFFIX,miaopai.com,DIRECT"
+  - "DOMAIN-SUFFIX,microsoft.com,DIRECT"
+  - "DOMAIN-SUFFIX,microsoftonline.com,DIRECT"
+  - "DOMAIN-SUFFIX,miui.com,DIRECT"
+  - "DOMAIN-SUFFIX,miwifi.com,DIRECT"
+  - "DOMAIN-SUFFIX,mob.com,DIRECT"
+  - "DOMAIN-SUFFIX,netease.com,DIRECT"
+  - "DOMAIN-SUFFIX,office.com,DIRECT"
+  - "DOMAIN-SUFFIX,office365.com,DIRECT"
+  - "DOMAIN-KEYWORD,officecdn,DIRECT"
+  - "DOMAIN-SUFFIX,oschina.net,DIRECT"
+  - "DOMAIN-SUFFIX,ppsimg.com,DIRECT"
+  - "DOMAIN-SUFFIX,pstatp.com,DIRECT"
+  - "DOMAIN-SUFFIX,qcloud.com,DIRECT"
+  - "DOMAIN-SUFFIX,qdaily.com,DIRECT"
+  - "DOMAIN-SUFFIX,qdmm.com,DIRECT"
+  - "DOMAIN-SUFFIX,qhimg.com,DIRECT"
+  - "DOMAIN-SUFFIX,qhres.com,DIRECT"
+  - "DOMAIN-SUFFIX,qidian.com,DIRECT"
+  - "DOMAIN-SUFFIX,qihucdn.com,DIRECT"
+  - "DOMAIN-SUFFIX,qiniu.com,DIRECT"
+  - "DOMAIN-SUFFIX,qiniucdn.com,DIRECT"
+  - "DOMAIN-SUFFIX,qiyipic.com,DIRECT"
+  - "DOMAIN-SUFFIX,qq.com,DIRECT"
+  - "DOMAIN-SUFFIX,qqurl.com,DIRECT"
+  - "DOMAIN-SUFFIX,rarbg.to,DIRECT"
+  - "DOMAIN-SUFFIX,ruguoapp.com,DIRECT"
+  - "DOMAIN-SUFFIX,segmentfault.com,DIRECT"
+  - "DOMAIN-SUFFIX,sinaapp.com,DIRECT"
+  - "DOMAIN-SUFFIX,smzdm.com,DIRECT"
+  - "DOMAIN-SUFFIX,snapdrop.net,DIRECT"
+  - "DOMAIN-SUFFIX,sogou.com,DIRECT"
+  - "DOMAIN-SUFFIX,sogoucdn.com,DIRECT"
+  - "DOMAIN-SUFFIX,sohu.com,DIRECT"
+  - "DOMAIN-SUFFIX,soku.com,DIRECT"
+  - "DOMAIN-SUFFIX,speedtest.net,DIRECT"
+  - "DOMAIN-SUFFIX,sspai.com,DIRECT"
+  - "DOMAIN-SUFFIX,suning.com,DIRECT"
+  - "DOMAIN-SUFFIX,taobao.com,DIRECT"
+  - "DOMAIN-SUFFIX,tencent.com,DIRECT"
+  - "DOMAIN-SUFFIX,tenpay.com,DIRECT"
+  - "DOMAIN-SUFFIX,tianyancha.com,DIRECT"
+  - "DOMAIN-SUFFIX,tmall.com,DIRECT"
+  - "DOMAIN-SUFFIX,tudou.com,DIRECT"
+  - "DOMAIN-SUFFIX,umetrip.com,DIRECT"
+  - "DOMAIN-SUFFIX,upaiyun.com,DIRECT"
+  - "DOMAIN-SUFFIX,upyun.com,DIRECT"
+  - "DOMAIN-SUFFIX,veryzhun.com,DIRECT"
+  - "DOMAIN-SUFFIX,weather.com,DIRECT"
+  - "DOMAIN-SUFFIX,weibo.com,DIRECT"
+  - "DOMAIN-SUFFIX,xiami.com,DIRECT"
+  - "DOMAIN-SUFFIX,xiami.net,DIRECT"
+  - "DOMAIN-SUFFIX,xiaomicp.com,DIRECT"
+  - "DOMAIN-SUFFIX,ximalaya.com,DIRECT"
+  - "DOMAIN-SUFFIX,xmcdn.com,DIRECT"
+  - "DOMAIN-SUFFIX,xunlei.com,DIRECT"
+  - "DOMAIN-SUFFIX,yhd.com,DIRECT"
+  - "DOMAIN-SUFFIX,yihaodianimg.com,DIRECT"
+  - "DOMAIN-SUFFIX,yinxiang.com,DIRECT"
+  - "DOMAIN-SUFFIX,ykimg.com,DIRECT"
+  - "DOMAIN-SUFFIX,youdao.com,DIRECT"
+  - "DOMAIN-SUFFIX,youku.com,DIRECT"
+  - "DOMAIN-SUFFIX,zealer.com,DIRECT"
+  - "DOMAIN-SUFFIX,zhihu.com,DIRECT"
+  - "DOMAIN-SUFFIX,zhimg.com,DIRECT"
+  - "DOMAIN-SUFFIX,zimuzu.tv,DIRECT"
+  - "DOMAIN-SUFFIX,zoho.com,DIRECT"
+  - "DOMAIN-KEYWORD,amazon,加速园"
+  - "DOMAIN-KEYWORD,google,加速园"
+  - "DOMAIN-KEYWORD,gmail,加速园"
+  - "DOMAIN-KEYWORD,youtube,加速园"
+  - "DOMAIN-KEYWORD,facebook,加速园"
+  - "DOMAIN-SUFFIX,fb.me,加速园"
+  - "DOMAIN-SUFFIX,fbcdn.net,加速园"
+  - "DOMAIN-KEYWORD,twitter,加速园"
+  - "DOMAIN-KEYWORD,instagram,加速园"
+  - "DOMAIN-KEYWORD,dropbox,加速园"
+  - "DOMAIN-SUFFIX,twimg.com,加速园"
+  - "DOMAIN-KEYWORD,blogspot,加速园"
+  - "DOMAIN-SUFFIX,youtu.be,加速园"
+  - "DOMAIN-KEYWORD,whatsapp,加速园"
+  - "DOMAIN-KEYWORD,admarvel,REJECT"
+  - "DOMAIN-KEYWORD,admaster,REJECT"
+  - "DOMAIN-KEYWORD,adsage,REJECT"
+  - "DOMAIN-KEYWORD,adsmogo,REJECT"
+  - "DOMAIN-KEYWORD,adsrvmedia,REJECT"
+  - "DOMAIN-KEYWORD,adwords,REJECT"
+  - "DOMAIN-KEYWORD,adservice,REJECT"
+  - "DOMAIN-SUFFIX,appsflyer.com,REJECT"
+  - "DOMAIN-KEYWORD,domob,REJECT"
+  - "DOMAIN-SUFFIX,doubleclick.net,REJECT"
+  - "DOMAIN-KEYWORD,duomeng,REJECT"
+  - "DOMAIN-KEYWORD,dwtrack,REJECT"
+  - "DOMAIN-KEYWORD,guanggao,REJECT"
+  - "DOMAIN-KEYWORD,lianmeng,REJECT"
+  - "DOMAIN-SUFFIX,mmstat.com,REJECT"
+  - "DOMAIN-KEYWORD,mopub,REJECT"
+  - "DOMAIN-KEYWORD,omgmta,REJECT"
+  - "DOMAIN-KEYWORD,openx,REJECT"
+  - "DOMAIN-KEYWORD,partnerad,REJECT"
+  - "DOMAIN-KEYWORD,pingfore,REJECT"
+  - "DOMAIN-KEYWORD,supersonicads,REJECT"
+  - "DOMAIN-KEYWORD,uedas,REJECT"
+  - "DOMAIN-KEYWORD,umeng,REJECT"
+  - "DOMAIN-KEYWORD,usage,REJECT"
+  - "DOMAIN-SUFFIX,vungle.com,REJECT"
+  - "DOMAIN-KEYWORD,wlmonitor,REJECT"
+  - "DOMAIN-KEYWORD,zjtoolbar,REJECT"
+  - "DOMAIN-SUFFIX,9to5mac.com,加速园"
+  - "DOMAIN-SUFFIX,abpchina.org,加速园"
+  - "DOMAIN-SUFFIX,adblockplus.org,加速园"
+  - "DOMAIN-SUFFIX,adobe.com,加速园"
+  - "DOMAIN-SUFFIX,akamaized.net,加速园"
+  - "DOMAIN-SUFFIX,alfredapp.com,加速园"
+  - "DOMAIN-SUFFIX,amplitude.com,加速园"
+  - "DOMAIN-SUFFIX,ampproject.org,加速园"
+  - "DOMAIN-SUFFIX,android.com,加速园"
+  - "DOMAIN-SUFFIX,angularjs.org,加速园"
+  - "DOMAIN-SUFFIX,aolcdn.com,加速园"
+  - "DOMAIN-SUFFIX,apkpure.com,加速园"
+  - "DOMAIN-SUFFIX,appledaily.com,加速园"
+  - "DOMAIN-SUFFIX,appshopper.com,加速园"
+  - "DOMAIN-SUFFIX,appspot.com,加速园"
+  - "DOMAIN-SUFFIX,arcgis.com,加速园"
+  - "DOMAIN-SUFFIX,archive.org,加速园"
+  - "DOMAIN-SUFFIX,armorgames.com,加速园"
+  - "DOMAIN-SUFFIX,aspnetcdn.com,加速园"
+  - "DOMAIN-SUFFIX,att.com,加速园"
+  - "DOMAIN-SUFFIX,awsstatic.com,加速园"
+  - "DOMAIN-SUFFIX,azureedge.net,加速园"
+  - "DOMAIN-SUFFIX,azurewebsites.net,加速园"
+  - "DOMAIN-SUFFIX,bing.com,加速园"
+  - "DOMAIN-SUFFIX,bintray.com,加速园"
+  - "DOMAIN-SUFFIX,bit.com,加速园"
+  - "DOMAIN-SUFFIX,bit.ly,加速园"
+  - "DOMAIN-SUFFIX,bitbucket.org,加速园"
+  - "DOMAIN-SUFFIX,bjango.com,加速园"
+  - "DOMAIN-SUFFIX,bkrtx.com,加速园"
+  - "DOMAIN-SUFFIX,blog.com,加速园"
+  - "DOMAIN-SUFFIX,blogcdn.com,加速园"
+  - "DOMAIN-SUFFIX,blogger.com,加速园"
+  - "DOMAIN-SUFFIX,blogsmithmedia.com,加速园"
+  - "DOMAIN-SUFFIX,blogspot.com,加速园"
+  - "DOMAIN-SUFFIX,blogspot.hk,加速园"
+  - "DOMAIN-SUFFIX,bloomberg.com,加速园"
+  - "DOMAIN-SUFFIX,box.com,加速园"
+  - "DOMAIN-SUFFIX,box.net,加速园"
+  - "DOMAIN-SUFFIX,cachefly.net,加速园"
+  - "DOMAIN-SUFFIX,chromium.org,加速园"
+  - "DOMAIN-SUFFIX,cl.ly,加速园"
+  - "DOMAIN-SUFFIX,cloudflare.com,加速园"
+  - "DOMAIN-SUFFIX,cloudfront.net,加速园"
+  - "DOMAIN-SUFFIX,cloudmagic.com,加速园"
+  - "DOMAIN-SUFFIX,cmail19.com,加速园"
+  - "DOMAIN-SUFFIX,cnet.com,加速园"
+  - "DOMAIN-SUFFIX,cocoapods.org,加速园"
+  - "DOMAIN-SUFFIX,comodoca.com,加速园"
+  - "DOMAIN-SUFFIX,crashlytics.com,加速园"
+  - "DOMAIN-SUFFIX,culturedcode.com,加速园"
+  - "DOMAIN-SUFFIX,d.pr,加速园"
+  - "DOMAIN-SUFFIX,danilo.to,加速园"
+  - "DOMAIN-SUFFIX,dayone.me,加速园"
+  - "DOMAIN-SUFFIX,db.tt,加速园"
+  - "DOMAIN-SUFFIX,deskconnect.com,加速园"
+  - "DOMAIN-SUFFIX,disq.us,加速园"
+  - "DOMAIN-SUFFIX,disqus.com,加速园"
+  - "DOMAIN-SUFFIX,disquscdn.com,加速园"
+  - "DOMAIN-SUFFIX,dnsimple.com,加速园"
+  - "DOMAIN-SUFFIX,docker.com,加速园"
+  - "DOMAIN-SUFFIX,dribbble.com,加速园"
+  - "DOMAIN-SUFFIX,droplr.com,加速园"
+  - "DOMAIN-SUFFIX,duckduckgo.com,加速园"
+  - "DOMAIN-SUFFIX,dueapp.com,加速园"
+  - "DOMAIN-SUFFIX,dytt8.net,加速园"
+  - "DOMAIN-SUFFIX,edgecastcdn.net,加速园"
+  - "DOMAIN-SUFFIX,edgekey.net,加速园"
+  - "DOMAIN-SUFFIX,edgesuite.net,加速园"
+  - "DOMAIN-SUFFIX,engadget.com,加速园"
+  - "DOMAIN-SUFFIX,entrust.net,加速园"
+  - "DOMAIN-SUFFIX,eurekavpt.com,加速园"
+  - "DOMAIN-SUFFIX,evernote.com,加速园"
+  - "DOMAIN-SUFFIX,fabric.io,加速园"
+  - "DOMAIN-SUFFIX,fast.com,加速园"
+  - "DOMAIN-SUFFIX,fastly.net,加速园"
+  - "DOMAIN-SUFFIX,fc2.com,加速园"
+  - "DOMAIN-SUFFIX,feedburner.com,加速园"
+  - "DOMAIN-SUFFIX,feedly.com,加速园"
+  - "DOMAIN-SUFFIX,feedsportal.com,加速园"
+  - "DOMAIN-SUFFIX,fiftythree.com,加速园"
+  - "DOMAIN-SUFFIX,firebaseio.com,加速园"
+  - "DOMAIN-SUFFIX,flexibits.com,加速园"
+  - "DOMAIN-SUFFIX,flickr.com,加速园"
+  - "DOMAIN-SUFFIX,flipboard.com,加速园"
+  - "DOMAIN-SUFFIX,g.co,加速园"
+  - "DOMAIN-SUFFIX,gabia.net,加速园"
+  - "DOMAIN-SUFFIX,geni.us,加速园"
+  - "DOMAIN-SUFFIX,gfx.ms,加速园"
+  - "DOMAIN-SUFFIX,ggpht.com,加速园"
+  - "DOMAIN-SUFFIX,ghostnoteapp.com,加速园"
+  - "DOMAIN-SUFFIX,git.io,加速园"
+  - "DOMAIN-KEYWORD,github,加速园"
+  - "DOMAIN-SUFFIX,globalsign.com,加速园"
+  - "DOMAIN-SUFFIX,gmodules.com,加速园"
+  - "DOMAIN-SUFFIX,godaddy.com,加速园"
+  - "DOMAIN-SUFFIX,golang.org,加速园"
+  - "DOMAIN-SUFFIX,gongm.in,加速园"
+  - "DOMAIN-SUFFIX,goo.gl,加速园"
+  - "DOMAIN-SUFFIX,goodreaders.com,加速园"
+  - "DOMAIN-SUFFIX,goodreads.com,加速园"
+  - "DOMAIN-SUFFIX,gravatar.com,加速园"
+  - "DOMAIN-SUFFIX,gstatic.com,加速园"
+  - "DOMAIN-SUFFIX,gvt0.com,加速园"
+  - "DOMAIN-SUFFIX,hockeyapp.net,加速园"
+  - "DOMAIN-SUFFIX,hotmail.com,加速园"
+  - "DOMAIN-SUFFIX,icons8.com,加速园"
+  - "DOMAIN-SUFFIX,ifixit.com,加速园"
+  - "DOMAIN-SUFFIX,ift.tt,加速园"
+  - "DOMAIN-SUFFIX,ifttt.com,加速园"
+  - "DOMAIN-SUFFIX,iherb.com,加速园"
+  - "DOMAIN-SUFFIX,imageshack.us,加速园"
+  - "DOMAIN-SUFFIX,img.ly,加速园"
+  - "DOMAIN-SUFFIX,imgur.com,加速园"
+  - "DOMAIN-SUFFIX,imore.com,加速园"
+  - "DOMAIN-SUFFIX,instapaper.com,加速园"
+  - "DOMAIN-SUFFIX,ipn.li,加速园"
+  - "DOMAIN-SUFFIX,is.gd,加速园"
+  - "DOMAIN-SUFFIX,issuu.com,加速园"
+  - "DOMAIN-SUFFIX,itgonglun.com,加速园"
+  - "DOMAIN-SUFFIX,itun.es,加速园"
+  - "DOMAIN-SUFFIX,ixquick.com,加速园"
+  - "DOMAIN-SUFFIX,j.mp,加速园"
+  - "DOMAIN-SUFFIX,js.revsci.net,加速园"
+  - "DOMAIN-SUFFIX,jshint.com,加速园"
+  - "DOMAIN-SUFFIX,jtvnw.net,加速园"
+  - "DOMAIN-SUFFIX,justgetflux.com,加速园"
+  - "DOMAIN-SUFFIX,kat.cr,加速园"
+  - "DOMAIN-SUFFIX,klip.me,加速园"
+  - "DOMAIN-SUFFIX,libsyn.com,加速园"
+  - "DOMAIN-SUFFIX,linkedin.com,加速园"
+  - "DOMAIN-SUFFIX,linode.com,加速园"
+  - "DOMAIN-SUFFIX,lithium.com,加速园"
+  - "DOMAIN-SUFFIX,littlehj.com,加速园"
+  - "DOMAIN-SUFFIX,live.com,加速园"
+  - "DOMAIN-SUFFIX,live.net,加速园"
+  - "DOMAIN-SUFFIX,livefilestore.com,加速园"
+  - "DOMAIN-SUFFIX,llnwd.net,加速园"
+  - "DOMAIN-SUFFIX,macid.co,加速园"
+  - "DOMAIN-SUFFIX,macromedia.com,加速园"
+  - "DOMAIN-SUFFIX,macrumors.com,加速园"
+  - "DOMAIN-SUFFIX,mashable.com,加速园"
+  - "DOMAIN-SUFFIX,mathjax.org,加速园"
+  - "DOMAIN-SUFFIX,medium.com,加速园"
+  - "DOMAIN-SUFFIX,mega.co.nz,加速园"
+  - "DOMAIN-SUFFIX,mega.nz,加速园"
+  - "DOMAIN-SUFFIX,megaupload.com,加速园"
+  - "DOMAIN-SUFFIX,microsofttranslator.com,加速园"
+  - "DOMAIN-SUFFIX,mindnode.com,加速园"
+  - "DOMAIN-SUFFIX,mobile01.com,加速园"
+  - "DOMAIN-SUFFIX,modmyi.com,加速园"
+  - "DOMAIN-SUFFIX,msedge.net,加速园"
+  - "DOMAIN-SUFFIX,myfontastic.com,加速园"
+  - "DOMAIN-SUFFIX,name.com,加速园"
+  - "DOMAIN-SUFFIX,nextmedia.com,加速园"
+  - "DOMAIN-SUFFIX,nsstatic.net,加速园"
+  - "DOMAIN-SUFFIX,nssurge.com,加速园"
+  - "DOMAIN-SUFFIX,nyt.com,加速园"
+  - "DOMAIN-SUFFIX,nytimes.com,加速园"
+  - "DOMAIN-SUFFIX,omnigroup.com,加速园"
+  - "DOMAIN-SUFFIX,onedrive.com,加速园"
+  - "DOMAIN-SUFFIX,onenote.com,加速园"
+  - "DOMAIN-SUFFIX,ooyala.com,加速园"
+  - "DOMAIN-SUFFIX,openvpn.net,加速园"
+  - "DOMAIN-SUFFIX,openwrt.org,加速园"
+  - "DOMAIN-SUFFIX,orkut.com,加速园"
+  - "DOMAIN-SUFFIX,osxdaily.com,加速园"
+  - "DOMAIN-SUFFIX,outlook.com,加速园"
+  - "DOMAIN-SUFFIX,ow.ly,加速园"
+  - "DOMAIN-SUFFIX,paddleapi.com,加速园"
+  - "DOMAIN-SUFFIX,parallels.com,加速园"
+  - "DOMAIN-SUFFIX,parse.com,加速园"
+  - "DOMAIN-SUFFIX,pdfexpert.com,加速园"
+  - "DOMAIN-SUFFIX,periscope.tv,加速园"
+  - "DOMAIN-SUFFIX,pinboard.in,加速园"
+  - "DOMAIN-SUFFIX,pinterest.com,加速园"
+  - "DOMAIN-SUFFIX,pixelmator.com,加速园"
+  - "DOMAIN-SUFFIX,pixiv.net,加速园"
+  - "DOMAIN-SUFFIX,playpcesor.com,加速园"
+  - "DOMAIN-SUFFIX,playstation.com,加速园"
+  - "DOMAIN-SUFFIX,playstation.com.hk,加速园"
+  - "DOMAIN-SUFFIX,playstation.net,加速园"
+  - "DOMAIN-SUFFIX,playstationnetwork.com,加速园"
+  - "DOMAIN-SUFFIX,pushwoosh.com,加速园"
+  - "DOMAIN-SUFFIX,rime.im,加速园"
+  - "DOMAIN-SUFFIX,servebom.com,加速园"
+  - "DOMAIN-SUFFIX,sfx.ms,加速园"
+  - "DOMAIN-SUFFIX,shadowsocks.org,加速园"
+  - "DOMAIN-SUFFIX,sharethis.com,加速园"
+  - "DOMAIN-SUFFIX,shazam.com,加速园"
+  - "DOMAIN-SUFFIX,skype.com,加速园"
+  - "DOMAIN-SUFFIX,smartdns加速园.com,加速园"
+  - "DOMAIN-SUFFIX,smartmailcloud.com,加速园"
+  - "DOMAIN-SUFFIX,sndcdn.com,加速园"
+  - "DOMAIN-SUFFIX,sony.com,加速园"
+  - "DOMAIN-SUFFIX,soundcloud.com,加速园"
+  - "DOMAIN-SUFFIX,sourceforge.net,加速园"
+  - "DOMAIN-SUFFIX,spotify.com,加速园"
+  - "DOMAIN-SUFFIX,squarespace.com,加速园"
+  - "DOMAIN-SUFFIX,sstatic.net,加速园"
+  - "DOMAIN-SUFFIX,st.luluku.pw,加速园"
+  - "DOMAIN-SUFFIX,stackoverflow.com,加速园"
+  - "DOMAIN-SUFFIX,startpage.com,加速园"
+  - "DOMAIN-SUFFIX,staticflickr.com,加速园"
+  - "DOMAIN-SUFFIX,steamcommunity.com,加速园"
+  - "DOMAIN-SUFFIX,symauth.com,加速园"
+  - "DOMAIN-SUFFIX,symcb.com,加速园"
+  - "DOMAIN-SUFFIX,symcd.com,加速园"
+  - "DOMAIN-SUFFIX,tapbots.com,加速园"
+  - "DOMAIN-SUFFIX,tapbots.net,加速园"
+  - "DOMAIN-SUFFIX,tdesktop.com,加速园"
+  - "DOMAIN-SUFFIX,techcrunch.com,加速园"
+  - "DOMAIN-SUFFIX,techsmith.com,加速园"
+  - "DOMAIN-SUFFIX,thepiratebay.org,加速园"
+  - "DOMAIN-SUFFIX,theverge.com,加速园"
+  - "DOMAIN-SUFFIX,time.com,加速园"
+  - "DOMAIN-SUFFIX,timeinc.net,加速园"
+  - "DOMAIN-SUFFIX,tiny.cc,加速园"
+  - "DOMAIN-SUFFIX,tinypic.com,加速园"
+  - "DOMAIN-SUFFIX,tmblr.co,加速园"
+  - "DOMAIN-SUFFIX,todoist.com,加速园"
+  - "DOMAIN-SUFFIX,trello.com,加速园"
+  - "DOMAIN-SUFFIX,trustasiassl.com,加速园"
+  - "DOMAIN-SUFFIX,tumblr.co,加速园"
+  - "DOMAIN-SUFFIX,tumblr.com,加速园"
+  - "DOMAIN-SUFFIX,tweetdeck.com,加速园"
+  - "DOMAIN-SUFFIX,tweetmarker.net,加速园"
+  - "DOMAIN-SUFFIX,twitch.tv,加速园"
+  - "DOMAIN-SUFFIX,txmblr.com,加速园"
+  - "DOMAIN-SUFFIX,typekit.net,加速园"
+  - "DOMAIN-SUFFIX,ubertags.com,加速园"
+  - "DOMAIN-SUFFIX,ublock.org,加速园"
+  - "DOMAIN-SUFFIX,ubnt.com,加速园"
+  - "DOMAIN-SUFFIX,ulyssesapp.com,加速园"
+  - "DOMAIN-SUFFIX,urchin.com,加速园"
+  - "DOMAIN-SUFFIX,usertrust.com,加速园"
+  - "DOMAIN-SUFFIX,v.gd,加速园"
+  - "DOMAIN-SUFFIX,v2ex.com,加速园"
+  - "DOMAIN-SUFFIX,vimeo.com,加速园"
+  - "DOMAIN-SUFFIX,vimeocdn.com,加速园"
+  - "DOMAIN-SUFFIX,vine.co,加速园"
+  - "DOMAIN-SUFFIX,vivaldi.com,加速园"
+  - "DOMAIN-SUFFIX,vox-cdn.com,加速园"
+  - "DOMAIN-SUFFIX,vsco.co,加速园"
+  - "DOMAIN-SUFFIX,vultr.com,加速园"
+  - "DOMAIN-SUFFIX,w.org,加速园"
+  - "DOMAIN-SUFFIX,w3schools.com,加速园"
+  - "DOMAIN-SUFFIX,webtype.com,加速园"
+  - "DOMAIN-SUFFIX,wikiwand.com,加速园"
+  - "DOMAIN-SUFFIX,wikileaks.org,加速园"
+  - "DOMAIN-SUFFIX,wikimedia.org,加速园"
+  - "DOMAIN-SUFFIX,wikipedia.com,加速园"
+  - "DOMAIN-SUFFIX,wikipedia.org,加速园"
+  - "DOMAIN-SUFFIX,windows.com,加速园"
+  - "DOMAIN-SUFFIX,windows.net,加速园"
+  - "DOMAIN-SUFFIX,wire.com,加速园"
+  - "DOMAIN-SUFFIX,wordpress.com,加速园"
+  - "DOMAIN-SUFFIX,workflowy.com,加速园"
+  - "DOMAIN-SUFFIX,wp.com,加速园"
+  - "DOMAIN-SUFFIX,wsj.com,加速园"
+  - "DOMAIN-SUFFIX,wsj.net,加速园"
+  - "DOMAIN-SUFFIX,xda-developers.com,加速园"
+  - "DOMAIN-SUFFIX,xeeno.com,加速园"
+  - "DOMAIN-SUFFIX,xiti.com,加速园"
+  - "DOMAIN-SUFFIX,yahoo.com,加速园"
+  - "DOMAIN-SUFFIX,yimg.com,加速园"
+  - "DOMAIN-SUFFIX,ying.com,加速园"
+  - "DOMAIN-SUFFIX,yoyo.org,加速园"
+  - "DOMAIN-SUFFIX,ytimg.com,加速园"
+  - "DOMAIN-SUFFIX,telegra.ph,加速园"
+  - "DOMAIN-SUFFIX,telegram.org,加速园"
+  - "IP-CIDR,91.108.4.0/22,加速园,no-resolve"
+  - "IP-CIDR,91.108.8.0/21,加速园,no-resolve"
+  - "IP-CIDR,91.108.16.0/22,加速园,no-resolve"
+  - "IP-CIDR,91.108.56.0/22,加速园,no-resolve"
+  - "IP-CIDR,149.154.160.0/20,加速园,no-resolve"
+  - "IP-CIDR6,2001:67c:4e8::/48,加速园,no-resolve"
+  - "IP-CIDR6,2001:b28:f23d::/48,加速园,no-resolve"
+  - "IP-CIDR6,2001:b28:f23f::/48,加速园,no-resolve"
+  - "IP-CIDR,120.232.181.162/32,加速园,no-resolve"
+  - "IP-CIDR,120.241.147.226/32,加速园,no-resolve"
+  - "IP-CIDR,120.253.253.226/32,加速园,no-resolve"
+  - "IP-CIDR,120.253.255.162/32,加速园,no-resolve"
+  - "IP-CIDR,120.253.255.34/32,加速园,no-resolve"
+  - "IP-CIDR,120.253.255.98/32,加速园,no-resolve"
+  - "IP-CIDR,180.163.150.162/32,加速园,no-resolve"
+  - "IP-CIDR,180.163.150.34/32,加速园,no-resolve"
+  - "IP-CIDR,180.163.151.162/32,加速园,no-resolve"
+  - "IP-CIDR,180.163.151.34/32,加速园,no-resolve"
+  - "IP-CIDR,203.208.39.0/24,加速园,no-resolve"
+  - "IP-CIDR,203.208.40.0/24,加速园,no-resolve"
+  - "IP-CIDR,203.208.41.0/24,加速园,no-resolve"
+  - "IP-CIDR,203.208.43.0/24,加速园,no-resolve"
+  - "IP-CIDR,203.208.50.0/24,加速园,no-resolve"
+  - "IP-CIDR,220.181.174.162/32,加速园,no-resolve"
+  - "IP-CIDR,220.181.174.226/32,加速园,no-resolve"
+  - "IP-CIDR,220.181.174.34/32,加速园,no-resolve"
+  - "DOMAIN,injections.adguard.org,DIRECT"
+  - "DOMAIN,local.adguard.org,DIRECT"
+  - "DOMAIN-SUFFIX,local,DIRECT"
+  - "IP-CIDR,127.0.0.0/8,DIRECT"
+  - "IP-CIDR,172.16.0.0/12,DIRECT"
+  - "IP-CIDR,192.168.0.0/16,DIRECT"
+  - "IP-CIDR,10.0.0.0/8,DIRECT"
+  - "IP-CIDR,17.0.0.0/8,DIRECT"
+  - "IP-CIDR,100.64.0.0/10,DIRECT"
+  - "IP-CIDR,224.0.0.0/4,DIRECT"
+  - "IP-CIDR6,fe80::/10,DIRECT"
+  - "GEOIP,CN,DIRECT"
+  - "MATCH,加速园"
