@@ -2762,6 +2762,8 @@ rules:
   - DOMAIN-SUFFIX,fb.me,🚀 节点选择
   - DOMAIN-SUFFIX,fbcdn.com,🚀 节点选择
   - DOMAIN-SUFFIX,fbcdn.net,🚀 节点选择
+  - DOMAIN-SUFFIX,linkedin.com,🎯 节点选择
+  - DOMAIN-SUFFIX,licdn.com,🎯 节点选择
   - IP-CIDR,31.13.24.0/21,🚀 节点选择,no-resolve
   - IP-CIDR,31.13.64.0/18,🚀 节点选择,no-resolve
   - IP-CIDR,45.64.40.0/22,🚀 节点选择,no-resolve
@@ -3427,7 +3429,6 @@ rules:
   - DOMAIN-SUFFIX,lanzoux.com,🎯 全球直连
   - DOMAIN-SUFFIX,lemicp.com,🎯 全球直连
   - DOMAIN-SUFFIX,letitfly.me,🎯 全球直连
-  - DOMAIN-SUFFIX,linkedin.com,🎯 全球直连
   - DOMAIN-SUFFIX,lizhi.fm,🎯 全球直连
   - DOMAIN-SUFFIX,lizhi.io,🎯 全球直连
   - DOMAIN-SUFFIX,lizhifm.com,🎯 全球直连
