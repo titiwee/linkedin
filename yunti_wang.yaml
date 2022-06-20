@@ -1,0 +1,544 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+bind-address: '*'
+mode: rule
+# info / warning / error / debug / silent
+log-level: info
+
+# When set to false, resolver won't translate hostnames to IPv6 addresses
+ipv6: true
+ 
+# RESTful web API listening address
+external-controller: 127.0.0.1:9090
+
+proxies:
+
+  - name: "台湾"
+    type: vmess
+    server: v2tw-ws-tls.ytv2line.top
+    port: 48403
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "台湾2"
+    type: vmess
+    server: v2tw-2.ytv2line.top
+    port: 48403
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "台湾3"
+    type: vmess
+    server: v2tw-3.ytv2line.top
+    port: 48403
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "美国"
+    type: vmess
+    server: v2usa-ws-tls.ytv2line.top
+    port: 48602
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "美国3"
+    type: vmess
+    server: v2usa3-ws-tls.ytv2line.top
+    port: 48602
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "美国2"
+    type: vmess
+    server: v2usa2-2.ytv2line.top
+    port: 48602
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "美国4"
+    type: vmess
+    server: v2usa4-ws-tls.ytv2line.top
+    port: 48602
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "美国5"
+    type: vmess
+    server: v2usa5.ytv2line.top
+    port: 48602
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "香港"
+    type: vmess
+    server: v2hk-ws-tls.ytv2line.top
+    port: 48203
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "香港2"
+    type: vmess
+    server: v2hk2-ws-tls.ytv2line.top
+    port: 48203
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "香港3"
+    type: vmess
+    server: v2hk3-ws-tls.ytv2line.top
+    port: 48203
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "香港4"
+    type: vmess
+    server: v2hk4-ws-tls.ytv2line.top
+    port: 48203
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "香港5"
+    type: vmess
+    server: v2hk5-ws-tls.ytv2line.top
+    port: 48203
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "香港6"
+    type: vmess
+    server: v2hk6.ytv2line.top
+    port: 48203
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "新加坡"
+    type: vmess
+    server: v2sg-ws-tls.ytv2line.top
+    port: 48302
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "新加坡2"
+    type: vmess
+    server: v2sg2-ws-tls.ytv2line.top
+    port: 48302
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "新加坡3"
+    type: vmess
+    server: v2sg3-ws-tls.ytv2line.top
+    port: 48302
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "日本"
+    type: vmess
+    server: v2jp-ws-tls.ytv2line.top
+    port: 48103
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "日本2"
+    type: vmess
+    server: v2jp2.ytv2line.top
+    port: 48103
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "日本3"
+    type: vmess
+    server: v2jp3-ws-tls.ytv2line.top
+    port: 48103
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "日本4"
+    type: vmess
+    server: v2jp4.ytv2line.top
+    port: 48103
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "俄罗斯"
+    type: vmess
+    server: v2ru-ws-tls.ytv2line.top
+    port: 48912
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "俄罗斯2"
+    type: vmess
+    server: v2ru2-ws-tls.ytv2line.top
+    port: 443
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 2
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "韩国"
+    type: vmess
+    server: v2kr.ytv2line.top
+    port: 48502
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "韩国2"
+    type: vmess
+    server: v2kr2-ws-tls.ytv2line.top
+    port: 48502
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "英国"
+    type: vmess
+    server: v2uk.ytv2line.top
+    port: 48702
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "德国"
+    type: vmess
+    server: v2de.ytv2line.top
+    port: 48802
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "法国"
+    type: vmess
+    server: v2fr.ytv2line.top
+    port: 48902
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+  - name: "加拿大"
+    type: vmess
+    server: v2ca-ws-tls.ytv2line.top
+    port: 48002
+    uuid: 8d5e7a95-a0c5-444f-b9d7-e680eed2ee3a
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+        path: /cpyhyfd3
+
+
+
+# 服务器节点订阅
+proxy-providers:
+
+
+ 
+proxy-groups:
+  - name: "节点列表"
+    type: select
+    proxies:
+      - 台湾
+      - 台湾2
+      - 台湾3
+      - 美国
+      - 美国3
+      - 美国2
+      - 美国4
+      - 美国5
+      - 香港
+      - 香港2
+      - 香港3
+      - 香港4
+      - 香港5
+      - 香港6
+      - 新加坡
+      - 新加坡2
+      - 新加坡3
+      - 日本
+      - 日本2
+      - 日本3
+      - 日本4
+      - 俄罗斯
+      - 俄罗斯2
+      - 韩国
+      - 韩国2
+      - 英国
+      - 德国
+      - 法国
+      - 加拿大
+
+
+ 
+  # 代理节点选择
+  - name: "PROXY"
+    type: select
+    proxies:
+      - 节点列表
+ 
+ 
+rule-providers:
+
+  reject:
+    type: http
+    behavior: domain
+    url: "https://f.yunti.run/clash/reject.txt"
+    path: ./ruleset/reject.yaml
+    interval: 86400
+
+  icloud:
+    type: http
+    behavior: domain
+    url: "https://f.yunti.run/clash/icloud.txt"
+    path: ./ruleset/icloud.yaml
+    interval: 86400
+
+  apple:
+    type: http
+    behavior: domain
+    url: "https://f.yunti.run/clash/apple.txt"
+    path: ./ruleset/apple.yaml
+    interval: 86400
+
+  google:
+    type: http
+    behavior: domain
+    url: "https://f.yunti.run/clash/google.txt"
+    path: ./ruleset/google.yaml
+    interval: 86400
+
+  proxy:
+    type: http
+    behavior: domain
+    url: "https://f.yunti.run/clash/proxy.txt"
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+
+  direct:
+    type: http
+    behavior: domain
+    url: "https://f.yunti.run/clash/direct.txt"
+    path: ./ruleset/direct.yaml
+    interval: 86400
+
+  private:
+    type: http
+    behavior: domain
+    url: "https://f.yunti.run/clash/private.txt"
+    path: ./ruleset/private.yaml
+    interval: 86400
+
+  gfw:
+    type: http
+    behavior: domain
+    url: "https://f.yunti.run/clash/gfw.txt"
+    path: ./ruleset/gfw.yaml
+    interval: 86400
+
+  greatfire:
+    type: http
+    behavior: domain
+    url: "https://f.yunti.run/clash/greatfire.txt"
+    path: ./ruleset/greatfire.yaml
+    interval: 86400
+
+  tld-not-cn:
+    type: http
+    behavior: domain
+    url: "https://f.yunti.run/clash/tld-not-cn.txt"
+    path: ./ruleset/tld-not-cn.yaml
+    interval: 86400
+
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: "https://f.yunti.run/clash/telegramcidr.txt"
+    path: ./ruleset/telegramcidr.yaml
+    interval: 86400
+
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: "https://f.yunti.run/clash/cncidr.txt"
+    path: ./ruleset/cncidr.yaml
+    interval: 86400
+
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: "https://f.yunti.run/clash/lancidr.txt"
+    path: ./ruleset/lancidr.yaml
+    interval: 86400
+
+    
+# 规则
+rules:
+  - PROCESS-NAME,v2ray,DIRECT
+  - PROCESS-NAME,xray,DIRECT
+  - PROCESS-NAME,naive,DIRECT
+  - PROCESS-NAME,trojan,DIRECT
+  - PROCESS-NAME,trojan-go,DIRECT
+  - PROCESS-NAME,ss-local,DIRECT
+  - PROCESS-NAME,privoxy,DIRECT
+  - PROCESS-NAME,leaf,DIRECT
+  - PROCESS-NAME,v2ray.exe,DIRECT
+  - PROCESS-NAME,xray.exe,DIRECT
+  - PROCESS-NAME,naive.exe,DIRECT
+  - PROCESS-NAME,trojan.exe,DIRECT
+  - PROCESS-NAME,trojan-go.exe,DIRECT
+  - PROCESS-NAME,ss-local.exe,DIRECT
+  - PROCESS-NAME,privoxy.exe,DIRECT
+  - PROCESS-NAME,leaf.exe,DIRECT
+  - PROCESS-NAME,Surge,DIRECT
+  - PROCESS-NAME,Surge 2,DIRECT
+  - PROCESS-NAME,Surge 3,DIRECT
+  - PROCESS-NAME,Surge 4,DIRECT
+  - PROCESS-NAME,Surge%202,DIRECT
+  - PROCESS-NAME,Surge%203,DIRECT
+  - PROCESS-NAME,Surge%204,DIRECT
+  - PROCESS-NAME,Thunder,DIRECT
+  - PROCESS-NAME,DownloadService,DIRECT
+  - PROCESS-NAME,qBittorrent,DIRECT
+  - PROCESS-NAME,Transmission,DIRECT
+  - PROCESS-NAME,fdm,DIRECT
+  - PROCESS-NAME,aria2c,DIRECT
+  - PROCESS-NAME,Folx,DIRECT
+  - PROCESS-NAME,NetTransport,DIRECT
+  - PROCESS-NAME,uTorrent,DIRECT
+  - PROCESS-NAME,WebTorrent,DIRECT
+  - PROCESS-NAME,aria2c.exe,DIRECT
+  - PROCESS-NAME,BitComet.exe,DIRECT
+  - PROCESS-NAME,fdm.exe,DIRECT
+  - PROCESS-NAME,NetTransport.exe,DIRECT
+  - PROCESS-NAME,qbittorrent.exe,DIRECT
+  - PROCESS-NAME,Thunder.exe,DIRECT
+  - PROCESS-NAME,ThunderVIP.exe,DIRECT
+  - PROCESS-NAME,transmission-daemon.exe,DIRECT
+  - PROCESS-NAME,transmission-qt.exe,DIRECT
+  - PROCESS-NAME,uTorrent.exe,DIRECT
+  - PROCESS-NAME,WebTorrent.exe,DIRECT
+  - DOMAIN,clash.razord.top,DIRECT
+  - DOMAIN,yacd.haishan.me,DIRECT
+  - DOMAIN,tronscan.org,PROXY
+  - DOMAIN,binance.com,PROXY
+  - DOMAIN,bin.binance.com,PROXY
+  - DOMAIN,www.binance.com,PROXY
+  - DOMAIN,nbstream.binance.com,PROXY
+  - DOMAIN,bin.bnbstatic.com,PROXY
+  - DOMAIN,report.binance.gg,PROXY
+  - DOMAIN,accounts.binance.com,PROXY
+  - DOMAIN,sun.tronex.io,PROXY
+  - DOMAIN,api.trongrid.io,PROXY
+  - DOMAIN,emby.fvideo.top,PROXY
+  - DOMAIN-SUFFIX,linkedin.com,PROXY
+  - DOMAIN-SUFFIX,licdn.com,PROXY
+  - GEOIP,,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,PROXY
